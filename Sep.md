@@ -14,7 +14,7 @@ To CMD : Ctrl + Alt + F2
 
 ### 11/9/2025
 - jupterhub : http://210.3.248.195:5200/hub
-- try upload file to server (program.zip)
+- try upload and unzip file to server (program.zip)
 - try to run model
 - install python packet
 - 
