@@ -90,7 +90,15 @@ To CMD : Ctrl + Alt + F2
       ## python 3.12 have too much error  
           carmen@hkmu-1080ti:~$ python3.8 -m venv venv38
           source venv38/bin/activate
-
+1.TypeError: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'
+- 請將所有 替換為evaluation_strategy，eval_strategy然後重新執行腳本。這應該可以解決 問題TypeError
+2. ConnectionResetError: [Errno 104] Connection reset by peer
+- 警告GradScaler表明較新的語法需要初始化，而torch.amp.GradScaler("cuda")不是已棄用的torch.cuda.amp.GradScaler()
+- 如果您打算使用 WavLM，請確保您的模型類別Model正確建置以使用 WavLM 架構。
+- 使用transformers.WavLMFeatureExtractor或正確的 WavLM 處理器，而不是Wav2Vec2FeatureExtractor。
+- from transformers import Wav2Vec2FeatureExtractor => 
+from transformers import WavLMFeatureExtractor
+processor = WavLMFeatureExtractor.from_pretrained('microsoft/wavlm-base')
 #### step 6 運行評估
       # 運行評估腳本
       python eval-sentence.py
