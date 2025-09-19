@@ -6,13 +6,13 @@ To GUI : startx
 To CMD : Ctrl + Alt + F2
 
 ## workload
-### 01/09/2025 
+### 01/09/2025 (week 1)
 - doenload raspberry pi image 
 - install and reset the OS
 - Debian GUI/Linux 12 raspberrypi tty1
 - set auto login to CMD
 
-### 11/9/2025
+### 11/9/2025  (week 2)
 - jupterhub : http://210.3.248.195:5200/hub
 - try upload and unzip file to server (program.zip)
 - try to run model
@@ -107,7 +107,22 @@ To CMD : Ctrl + Alt + F2
       python eval-sentence.py
       EER = 0.999 (wrong!!!!!) 
       
-### 19/9/2025
-#### **Step 1.** read readme.md to understand what the program do 
-#### **Step 2**. create a new training file call train-sentence-test.py
-#### **Step 3.** run and check EER 
+### 19/9/2025  (week 3)
+#### **Step 1.** Read LA folder understand what the file do 
+- 
+#### **Step 1.** Read program.zip and understand what the program do 
+- 
+#### **Step 3.** Correcting the EER (retrain model ~ 16h)
+- downoload the correct file and compare with the exist file , check that is the match 
+- Rename all existing but wrong data file with add 0 in begining
+- create a new training file call train-sentence-test.py
+      - change CUDA size
+        - per_device_train_batch_size= 16 -> 8
+        - per_device_eval_batch_size=64 -> 32
+- Run python eval-sentence.py (~ 1h )
+- EER = 
+
+###  24/9/2025  (week 4)
+- Write proposal frame (google.docx)
+- Reseach what hardware I need in FYP ($1200 Budget)
+- Thinking about the problem and solution (Flow chart)
