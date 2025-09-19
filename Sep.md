@@ -124,5 +124,11 @@ To CMD : Ctrl + Alt + F2
 
 ###  24/9/2025  (week 4)
 - Write proposal frame (google.docx)
+  - https://docs.google.com/document/d/1SNsOACF4pRRkyvMDBgrhO5tFJH_NIaJwncExFTuw3es/edit?usp=sharing 
 - Reseach what hardware I need in FYP ($1200 Budget)
+      - Raspberry Pi 5 , screen , micophone , USB 2.0 , USB 3.0 , HTML line , power , keyboard , mouse , LED light  
 - Thinking about the problem and solution (Flow chart)
+  - Technical analysis (Flow chart
+  - Statement
+- Present ppt /content (24/10/2025 15:00)
+      - What is EER , what is different between accuracy , why use EER not just accuracy
