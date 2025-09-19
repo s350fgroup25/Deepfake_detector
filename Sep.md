@@ -49,7 +49,8 @@ To CMD : Ctrl + Alt + F2
       
       # 下載數據集（需要從官方申請，這裡假設你已經有數據）
       - https://www.kaggle.com/datasets/awsaf49/asvpoof-2019-dataset?resource=download-directory&select=LA
-      - upload to ~/asvspoof-demo
+      - https://datashare.ed.ac.uk/handle/10283/3336
+      - upload to ~/asvspoof
       - unzip LA.zip -d datasets
 
 #### step 4 (in root )
