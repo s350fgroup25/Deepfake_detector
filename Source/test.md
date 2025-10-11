@@ -17,5 +17,6 @@
         │    ├── run_test.py         # 測試主程式
 ### 4. 執行測試
 - 進入 /asvspoof/test 資料夾，啟動你的 Python 環境後執行：
-   python run_test.py
+  
+       python run_test.py
 - 此程式會依照 protocol 隨機挑選音訊，對每個音訊推論真偽標籤並輸出結果與效能。
