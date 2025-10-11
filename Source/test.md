@@ -2,7 +2,7 @@
 ### 1. 部署與運行說明：
 - 安裝必須 Python 套件：
   
-            pip install torch torchaudio transformers safetensors numpy
+      pip install torch torchaudio transformers safetensors numpy
 ### 2. 資料與模型
 - 將你的 wavlm-epoch50.safetensors 模型權重放在 /program 內。
 - 確認 ASVspoof2019 LA 評測集音訊資料與 protocol 檔案路徑設定正確。
