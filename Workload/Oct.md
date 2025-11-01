@@ -21,5 +21,18 @@
 - convert_protocol.py
   - 轉成模型可讀 protocol，且同時複製重命名音訊
 ## 21/10/2025
-
-## 1/11/2025
+- /program/test.py
+      print(f"Sample {i+1}:")
+      print(f" file_name: {fname}")
+      print(f" predicted_label: {pred}")
+      print(f" ground_truth_label: {gt}")
+      print(f" correct: {correct}")
+      print(f" runtime_ms: {runtime_ms:.3f}")
+      print(f" audio_duration_ms: {duration_ms}")
+      
+      print(f"Total samples evaluated: {min_len}")
+      print(f"Total evaluation time (s): {(end_eval - start_eval):.3f}")
+- /program/evla-sentence.py
+  - max samles = 1 
+- /program/single_evaluate.py
+  - wav type audio flle
