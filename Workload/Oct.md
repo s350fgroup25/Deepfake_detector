@@ -22,6 +22,7 @@
   - 轉成模型可讀 protocol，且同時複製重命名音訊
 ## 21/10/2025
 - /program/test.py
+  
       print(f"Sample {i+1}:")
       print(f" file_name: {fname}")
       print(f" predicted_label: {pred}")
