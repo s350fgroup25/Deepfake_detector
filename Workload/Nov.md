@@ -103,6 +103,11 @@
   
     python3 -c "import bz2; print('bz2 module loaded')"
 
+## fix bug ：
+- can't just choose some .flac file 
+- 請確認.flac資料目錄中的所有檔案均完整且可存取。
+- 如果某些檔案損壞或遺失，您可能需要修復或刪除這些檔案。
+
 
 ## 方案一：使用預先編譯的 ARM64 架構 PyTorch
 - 1. 將安裝僅 CPU版本，避免 CUDA 依賴項並節省空間，同時仍允許推理。
