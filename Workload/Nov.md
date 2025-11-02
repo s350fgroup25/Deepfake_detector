@@ -148,7 +148,6 @@
 
 ## 3/11/2025
 - **Run test_all.py** 
-  -Bug 1.
   - ImportError: Using the `Trainer` with `PyTorch` requires `accelerate>=0.26.0`: Please run `pip install transformers[torch]` or `pip install 'accelerate>=0.26.0'`
 model.safetensors: 100%|██████████████████████████████████████████████████████████| 378M/378M [00:48<00:00, 7.74MB/s]
   - pip install --upgrade 'transformers[torch]' accelerate>=0.26.0
