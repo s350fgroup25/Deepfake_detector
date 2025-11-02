@@ -160,9 +160,9 @@ model.safetensors: 100%|██████████████████�
 - In your Python script or wherever you create the DataLoader, modify it like this:
   - DataLoader(dataset, batch_size=..., shuffle=..., num_workers=2, pin_memory=False)
   <img width="934" height="37" alt="image" src="https://github.com/user-attachments/assets/b57fc301-6746-45f9-b0a6-03b7f060821a" />
--  1%|▋| 5/557 [26:49<54:43:45, 356.93s/it] (start an hour to look for result)
-  - around 5 min per 1 sample
-  - need more and more time as, start was ~32h but after 5 sample it need ~54h
+-  1%|▋| 5/557 [26:49<54:43:45, 356.93s/it] (start to look for result)
+    - around 5 min per 1 sample
+    - need more and more time as, start was ~32h but after 5 sample it need ~54h
 
 ## 3/11/2025
 - found a way to shorter time 
