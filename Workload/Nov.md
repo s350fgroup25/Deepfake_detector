@@ -164,6 +164,7 @@ model.safetensors: 100%|██████████████████�
     - around 5 min per 1 sample
     - need more and more time as, start was ~32h but after 5 sample it need ~54h
 
+## 4/11/2025
 - **Run test_10.py**
   <img width="973" height="717" alt="image" src="https://github.com/user-attachments/assets/51c7d172-9059-49a4-b77d-8bf865d7ec7e" />
   
@@ -174,7 +175,7 @@ model.safetensors: 100%|██████████████████�
   - avg :2.5s per 1 audio (is that real time ?)
   
 
-## 4/11/2025
+## 5/11/2025
 - found a way to shorter time 
 - try one audio , not all
 - cal the total time
