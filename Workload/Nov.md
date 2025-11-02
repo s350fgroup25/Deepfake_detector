@@ -174,6 +174,18 @@
 - 簡化的推理範例（基於您的test_all.py核心邏輯 (re-write  code) -- test_less.py
 - 
 ## 2/11/2025
-- delete all
-- try to re bulid all
-- fix _bz2
+- delete all & try to re-bulid all
+- **fix _bz2 (done)**
+  - delete all python packet
+  - download python 3.12.3  
+- **fix pytorch (done)**
+  - pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+- **fix Transformers (done)**
+  - pip install transformers safetensors numpy soundfile
+
+- **Run test_all.py** 
+  -Bug 1.
+  - ImportError: Using the `Trainer` with `PyTorch` requires `accelerate>=0.26.0`: Please run `pip install transformers[torch]` or `pip install 'accelerate>=0.26.0'`
+model.safetensors: 100%|██████████████████████████████████████████████████████████| 378M/378M [00:48<00:00, 7.74MB/s]
+  - pip install --upgrade 'transformers[torch]' accelerate>=0.26.0
+  - pip show accelerate
