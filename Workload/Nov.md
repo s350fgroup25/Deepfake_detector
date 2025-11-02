@@ -176,3 +176,4 @@
 ## 2/11/2025
 - delete all
 - try to re bulid all
+- fix _bz2
