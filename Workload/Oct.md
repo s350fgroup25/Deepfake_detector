@@ -37,3 +37,40 @@
   - max samles = 1 
 - /program/single_evaluate.py
   - wav type audio flle
+ 
+## 29/10/2025
+- test_all.py
+  - Output all print statements to test_output.txt:
+      - Uses Python’s redirect_stdout to write printed output into a file.
+- test_10.py
+  - Randomly select 10 audio samples:
+      - Modifies the dataset so only 10 randomly chosen samples are processed (if more than 10 samples available).
+- can run in server
+
+## 30/10/2025
+- try to start up the enverioment in raspberry pi
+- packing all required file in zip
+  - asvpoof2019.zip
+    - /datasets/models/wavlm-epoch50/
+    - /datasets/LA
+        - /ASVspoof2019_LA_cm_protocols
+        - /ASVspoof2019_LA_eval
+    - /program
+    - /requirements.txt
+    - 目錄
+    
+          ├── test.py
+          ├── wavlm-epoch50.safetensors
+          ├── dataset_sentence.py
+          ├── model_sentence1.py
+          ├── eer1.py
+          └── /home/carmen/asvspoof/datasets/LA/
+              ├── ASVspoof2019_LA_eval
+              │     └── flac/
+              └── ASVspoof2019_LA_cm_protocols
+                    └── ASVspoof2019.LA.cm.eval.trl.txt
+  
+- SHH and VNC raspberry pi 5 (done)
+  - import the testing enviroment (fail)
+  - testing python 3.13 and python 3.11 
+
