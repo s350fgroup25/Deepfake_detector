@@ -1,8 +1,5 @@
 ## 1/11/2025
-
-
-
-### bug : 
+### fix bug : 
 - requirements.txt
   -  ERROR: Could not find a version that satisfies the requirement nvidia-cudnn-cu11==9.1.0.70
   - ARM（例如 Raspberry Pi），無法使用官方的 NVIDIA cuDNN pip wheel。
@@ -76,7 +73,7 @@
 - 請確認.flac資料目錄中的所有檔案均完整且可存取。
 - 如果某些檔案損壞或遺失，您可能需要修復或刪除這些檔案。
 
-
+# Review Solution 
 ## 方案一：使用預先編譯的 ARM64 架構 PyTorch
 - 1. 將安裝僅 CPU版本，避免 CUDA 依賴項並節省空間，同時仍允許推理。
   - pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
@@ -131,8 +128,6 @@
 - 修復 Python 系統相依性（例如 bz2），以避免使用過程中出現匯入錯誤。
 - 對於像 Raspberry Pi 這樣資源受限的設備，僅支援 CPU 的 PyTorch wheels 或 ONNX 執行時間環境就足夠了。
 
-
-
 ## 專為內存有限的樹莓派量身定制的更簡便方法 
 - 如果可能，請使用 PyTorch預先建置的輕量級版本（例如，適用於 ARM64 的 PyTorch 1.10 或 2.0）。
 - 透過直接運行推理來避免使用繁重的 Transformer Trainer 和 TrainingArguments 機制。
@@ -165,10 +160,11 @@ model.safetensors: 100%|██████████████████�
 - In your Python script or wherever you create the DataLoader, modify it like this:
   - DataLoader(dataset, batch_size=..., shuffle=..., num_workers=2, pin_memory=False)
   <img width="934" height="37" alt="image" src="https://github.com/user-attachments/assets/b57fc301-6746-45f9-b0a6-03b7f060821a" />
--  0%|▎                                                                           | 2/557 [07:00<32:25:08, 210.28s/it]
-  
+-   1%|▍                                                                           | 3/557 [13:18<43:06:11, 280.09s/it]
+
 ## 3/11/2025
-- try one , not all
+- found a way to shorter time 
+- try one audio , not all
 - cal the total time
-- two max =1 , and single.py
-- import model time
+- two py : max =1 , and single.py
+- cal import model time 
