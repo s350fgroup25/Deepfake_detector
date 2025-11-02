@@ -189,3 +189,4 @@
 model.safetensors: 100%|██████████████████████████████████████████████████████████| 378M/378M [00:48<00:00, 7.74MB/s]
   - pip install --upgrade 'transformers[torch]' accelerate>=0.26.0
   - pip show accelerate
+<img width="948" height="253" alt="image" src="https://github.com/user-attachments/assets/8931195f-4a56-4dbb-b614-2a5f2bba3efc" />
