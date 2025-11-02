@@ -196,6 +196,7 @@ model.safetensors: 100%|██████████████████�
 - Lower the num_workers parameter in your DataLoader to 2 or 4 (or 0 to disable multiprocessing):
 - In your Python script or wherever you create the DataLoader, modify it like this:
   - DataLoader(dataset, batch_size=..., shuffle=..., num_workers=2, pin_memory=False)
+  <img width="934" height="37" alt="image" src="https://github.com/user-attachments/assets/b57fc301-6746-45f9-b0a6-03b7f060821a" />
 
   
 ## 3/11/2025
