@@ -192,6 +192,12 @@ model.safetensors: 100%|██████████████████�
   <img width="948" height="253" alt="image" src="https://github.com/user-attachments/assets/8931195f-4a56-4dbb-b614-2a5f2bba3efc" />
 - can run , no error , but no response , maybe need lots of time
 
+  - /home/carmen/venv/lib/python3.12/site-packages/torch/utils/data/dataloader.py:668: UserWarning: 'pin_memory' argument is set as true but no accelerator is found, then device pinned memory won't be used.warnings.warn(warn_msg)
+- Lower the num_workers parameter in your DataLoader to 2 or 4 (or 0 to disable multiprocessing):
+- In your Python script or wherever you create the DataLoader, modify it like this:
+  - DataLoader(dataset, batch_size=..., shuffle=..., num_workers=2, pin_memory=False)
+
+  
 ## 3/11/2025
 - try one , not all
 - cal the total time
