@@ -197,7 +197,7 @@ model.safetensors: 100%|██████████████████�
 - In your Python script or wherever you create the DataLoader, modify it like this:
   - DataLoader(dataset, batch_size=..., shuffle=..., num_workers=2, pin_memory=False)
   <img width="934" height="37" alt="image" src="https://github.com/user-attachments/assets/b57fc301-6746-45f9-b0a6-03b7f060821a" />
-
+-  0%|▎                                                                           | 2/557 [07:00<32:25:08, 210.28s/it]
   
 ## 3/11/2025
 - try one , not all
