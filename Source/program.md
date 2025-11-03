@@ -11,7 +11,6 @@
 ## single_evalute.py
 - test_file = '2021LA1.wav'
 
-
 # 30/9/2025 update 
 ## dataset_sentence.py
 **Content**: Dataset handling for ASVspoof2019 audio files with audio preprocessing and collation.
