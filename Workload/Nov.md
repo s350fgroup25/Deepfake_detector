@@ -103,7 +103,6 @@ model.safetensors: 100%|██████████████████�
       - around 5 min per 1 sample
       - need more and more time as, start was ~32h but after 5 sample it need ~54h
 
-## 4/11/2025
 ### Run test_10.py
   - if num_samples > 10:
      - indices = random.sample(range(num_samples), 10)
@@ -115,9 +114,9 @@ model.safetensors: 100%|██████████████████�
   - Total evaluation time (s): 25.322 per 10 sample
   - avg :2.5s per 1 audio , (not correct , as total ~3s)
 
+## 4/11/2025
 ### Run eval-sentence.py
 - chage the max_eval_samples don't work ( Stil = ... /557)
-
 
 ### Jupyterlab 
 - sample = 1 (test_sample_skip.py)
