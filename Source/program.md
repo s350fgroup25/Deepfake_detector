@@ -1,4 +1,14 @@
 ## /program 
+# 4/11/2025 update 
+## test_sample.py     
+- 1 sample : eval_dataset = Subset(eval_dataset_full, [0])
+- 10 sample :eval_dataset = Subset(eval_dataset_full, list(range(10)))
+## test_sample_skip.py
+      - it will skip the eer calculation
+      - skipped eer(positive_class_scores, labels)
+      - only show positive_class_scores
+            - positive_class_scores 是模型對「欺騙」類別的預測可能性
+            - 非常小的值（~1e-11）意味著模型預測該樣本幾乎肯定是真實的
 # 1/11/2025 update 
 ## test_10.py
 - Randomly select 10 audio samples:
