@@ -3,13 +3,15 @@
 ## test_10.py
 - Randomly select 10 audio samples:
 - Modifies the dataset so only 10 randomly chosen samples are processed (if more than 10 samples available).
-
+      
+      if num_samples > 10:
+          indices = random.sample(range(num_samples), 10)
 ## test_all.py
 - Output all print statements to test_output.txt:
 - Uses Python’s redirect_stdout to write printed output into a file.
 
 ## single_evalute.py
-- test_file = '2021LA1.wav'
+      test_file = '2021LA1.wav'
 
 # 30/9/2025 update 
 ## dataset_sentence.py
