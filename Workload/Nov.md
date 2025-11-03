@@ -183,13 +183,7 @@ model.safetensors: 100%|██████████████████�
       Equal Error Rate (EER): 0.0
 
 
-### Install FFmpeg (raspberry)
-- covert flac to wav
-  
-      sudo apt-get install ffmpeg
-      cd /asvspoof/datasets/LA/ASVspoof2019_LA_eval/flac 
-      ffmpeg -i LA_E_1000147.flac 
-      /home/carmen/asvspoof/datasets/LA/ASVspoof2019_LA_eval/wav/LA_E_1000147.wav
+
 
 
 ### Run single_evaluate.py
@@ -201,7 +195,15 @@ model.safetensors: 100%|██████████████████�
   - In Jupyterlab : no wav now , as can't sudo
   - In raspberry : Bugs
 
-### Bug :
+#### Install FFmpeg (raspberry)
+- covert flac to wav
+  
+      sudo apt-get install ffmpeg
+      cd /asvspoof/datasets/LA/ASVspoof2019_LA_eval/flac 
+      ffmpeg -i LA_E_1000147.flac 
+      /home/carmen/asvspoof/datasets/LA/ASVspoof2019_LA_eval/wav/LA_E_1000147.wav
+  
+#### Bug :
 - 1. ImportError: TorchCodec is required for load_with_torchcodec.
     - pip install torchcodec
 - 2. Errors were encountered while processing:apt-listchanges
