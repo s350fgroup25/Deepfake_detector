@@ -188,7 +188,35 @@ model.safetensors: 100%|██████████████████�
   - test in raspberry :
 
 ### Run eval-sentence.py
-  - max_eval_samples = 1
+- chage the max_eval_samples don't work
+  - stil /557
+
+### test_sample.py 
+- sample = 10 
+
+      Model loaded successfully in 1.375 seconds.
+      Fetching 1 files: 100%|███████| 1/1 [00:00<00:00, 11275.01it/s]
+      100%|██████████████████████████| 10/10 [00:00<00:00, 29.42it/s]
+      nontarget_scores[nontarget_position] is 7 9.570489e-11
+      target_scores[target_position] is 0 1.0
+      threshold  1.0
+      Equal Error Rate (EER): 0.0
+
+- sample = 100
+  
+      Model loaded successfully in 1.456 seconds.
+      Fetching 1 files: 100%|███████████████████████████████████████████████| 1/1 [00:00<00:00, 15534.46it/s]
+      100%|████████████████████████████████████████████████████████████████| 100/100 [00:03<00:00, 31.05it/s]
+      nontarget_scores[nontarget_position] is 85 0.9999995
+      target_scores[target_position] is 0 1.0
+      threshold  1.0
+      Equal Error Rate (EER): 0.0
+
+- sample = all
+
+      Model loaded successfully in 1.407 seconds.
+      Fetching 1 files: 100%|███████████████████████████████████████████████| 1/1 [00:00<00:00, 15650.39it/s]
+        5%|███▎                                                         | 3832/71237 [02:03<34:58, 32.12it/s]
     - In Jupyterlab : 
     - In raspberry :
   - max_eval_samples = 10
