@@ -190,7 +190,9 @@ model.safetensors: 100%|██████████████████�
         Skipping EER calculation due to single sample evaluation.
         Positive class scores: [1.6212082e-11]
         Labels: [0]
+  
 ### test_sample.py 
+#### Jupyterlab
 - sample = 10 
 
       Model loaded successfully in 1.375 seconds.
@@ -217,6 +219,10 @@ model.safetensors: 100%|██████████████████�
       Fetching 1 files: 100%|███████████████████████████████████████████████| 1/1 [00:00<00:00, 15650.39it/s]
         5%|███▎                                                         | 3832/71237 [02:03<34:58, 32.12it/s]
 
+#### raspberry
+- sample = 10
+  
+- sample = 100
 
 ### Run single_evaluate.py
   - Download wav :
