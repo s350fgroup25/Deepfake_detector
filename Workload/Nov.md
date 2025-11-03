@@ -175,14 +175,14 @@ model.safetensors: 100%|██████████████████�
   - Total evaluation time (s): 0.752 per 10 sample
 - In raspberry pi 5 :
   - Total evaluation time (s): 25.322 per 10 sample
-  - avg :2.5s per 1 audio (is that real time ?)
+  - avg :2.5s per 1 audio , (not correct , as total ~3s)
 
 ### Run eval-sentence.py
-- chage the max_eval_samples don't work
-  - stil /557
+- chage the max_eval_samples don't work ( Stil = ... /557)
 
-### test_sample_skip.py 
-- sample = 1
+
+### Jupyterlab 
+- sample = 1 (test_sample_skip.py)
   
         Model loaded successfully in 1.423 seconds.
         Fetching 1 files: 100%|███████| 1/1 [00:00<00:00, 15363.75it/s]
@@ -191,9 +191,7 @@ model.safetensors: 100%|██████████████████�
         Positive class scores: [1.6212082e-11]
         Labels: [0]
   
-### test_sample.py 
-#### Jupyterlab
-- sample = 10 
+- sample = 10 (test_sample.py )
 
       Model loaded successfully in 1.375 seconds.
       Fetching 1 files: 100%|███████| 1/1 [00:00<00:00, 11275.01it/s]
@@ -203,7 +201,7 @@ model.safetensors: 100%|██████████████████�
       threshold  1.0
       Equal Error Rate (EER): 0.0
 
-- sample = 100
+- sample = 100 (test_sample.py )
   
       Model loaded successfully in 1.456 seconds.
       Fetching 1 files: 100%|███████████████████████████████████████████████| 1/1 [00:00<00:00, 15534.46it/s]
@@ -213,16 +211,40 @@ model.safetensors: 100%|██████████████████�
       threshold  1.0
       Equal Error Rate (EER): 0.0
 
-- sample = all (71237)
+- sample = all (71237) (test_sample.py )
 
       Model loaded successfully in 1.407 seconds.
-      Fetching 1 files: 100%|███████████████████████████████████████████████| 1/1 [00:00<00:00, 15650.39it/s]
-        5%|███▎                                                         | 3832/71237 [02:03<34:58, 32.12it/s]
+      100%|████████████████████████████████████████████████████████████| 71237/71237 [38:15<00:00, 31.03it/s]
+      nontarget_scores[nontarget_position] is 62838 0.9999998
+      target_scores[target_position] is 120 0.9999999
+      threshold  0.9999999
+      Equal Error Rate (EER): 0.016315431679129844
 
-#### raspberry
-- sample = 10
-  
+### Raspberry Pi 5
+- sample = 1 (test_sample_skip.py)
+
+      Model loaded successfully in 9.393 seconds.
+      100%|██████████████████████| 1/1 [00:00<00:00, 1208.38it/s]
+      Skipping EER calculation due to single sample evaluation.
+      Positive class scores: [2.0084073e-11]
+      Labels: [0]
+- sample = 10 (test_sample.py)
+
+      Model loaded successfully in 1.211 seconds.
+      100%|█████████████████| 10/10 [00:16<00:00,  1.63s/it]
+      nontarget_scores[nontarget_position] is 7 1.7440004e-10
+      target_scores[target_position] is 0 1.0
+      threshold  1.0
+      Equal Error Rate (EER): 0.0
 - sample = 100
+  
+      Model loaded successfully in 1.599 seconds.
+      100%|████████████████████| 100/100 [03:40<00:00,  2.21s/it]
+      nontarget_scores[nontarget_position] is 85 5.576394e-09
+      target_scores[target_position] is 0 0.99183625
+      threshold  0.99183625
+      Equal Error Rate (EER): 0.0
+
 
 ### Run single_evaluate.py
   - Download wav :
