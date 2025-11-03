@@ -1,6 +1,8 @@
 ## /datasets/LA
 The ASVspoof 2019 Logical Access (LA) database is organized for the automatic speaker verification spoofing and countermeasures challenge and contains audio data, protocols, and baseline scores structured as follows:
 
+- LA set :約71,237 個樣本（7,355 個真實樣本 + 63,882 個欺騙樣本）
+
 ### Directory Structure
 - **LA/**: Main folder for Logical Access data.
   - **ASVspoof2019_LA_asv_protocols**: ASV system protocol files for trials and enrollment.
