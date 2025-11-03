@@ -165,7 +165,9 @@ model.safetensors: 100%|██████████████████�
     - need more and more time as, start was ~32h but after 5 sample it need ~54h
 
 ## 4/11/2025
-- **Run test_10.py**
+### Run test_10.py
+  - if num_samples > 10:
+     - indices = random.sample(range(num_samples), 10)
   <img width="973" height="717" alt="image" src="https://github.com/user-attachments/assets/51c7d172-9059-49a4-b77d-8bf865d7ec7e" />
   
 - In Jupyterlab :
@@ -173,15 +175,16 @@ model.safetensors: 100%|██████████████████�
 - In raspberry pi 5 :
   - Total evaluation time (s): 25.322 per 10 sample
   - avg :2.5s per 1 audio (is that real time ?)
-
-- **Run single_evaluate.py**
+ 
+    
+### Run single_evaluate.py
   - Download wav :
     - Asvspoof2021 : https://www.asvspoof.org/index2021.html
     - test_file = '2021LA1.wav'
   - test in Jupyterlab : 
   - test in raspberry :
 
-- Run eval-sentence.py
+### Run eval-sentence.py
   - max_eval_samples = 1
   - max_eval_samples = 10
     
@@ -191,4 +194,3 @@ model.safetensors: 100%|██████████████████�
 - cal the total time
 - two py : max =1 , and single.py
 - cal import model time
-- eval 
