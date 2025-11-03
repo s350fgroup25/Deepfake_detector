@@ -160,9 +160,10 @@ model.safetensors: 100%|██████████████████�
 - In your Python script or wherever you create the DataLoader, modify it like this:
   - DataLoader(dataset, batch_size=..., shuffle=..., num_workers=2, pin_memory=False)
   <img width="934" height="37" alt="image" src="https://github.com/user-attachments/assets/b57fc301-6746-45f9-b0a6-03b7f060821a" />
--  1%|▋| 5/557 [26:49<54:43:45, 356.93s/it] (start to look for result)
-    - around 5 min per 1 sample
-    - need more and more time as, start was ~32h but after 5 sample it need ~54h
+    - In Jupyterlab : 9%|█████▋| 49/557 [04:35<48:05,  5.68s/it]
+    - In raspberry :1%|▋| 5/557 [26:49<54:43:45, 356.93s/it] (start to look for result)
+      - around 5 min per 1 sample
+      - need more and more time as, start was ~32h but after 5 sample it need ~54h
 
 ## 4/11/2025
 ### Run test_10.py
@@ -188,8 +189,14 @@ model.safetensors: 100%|██████████████████�
 
 ### Run eval-sentence.py
   - max_eval_samples = 1
+    - In Jupyterlab : 
+    - In raspberry :
   - max_eval_samples = 10
-    
+    - In Jupyterlab : 
+    - In raspberry :
+  - max_eval_samples = 100 
+    - In Jupyterlab : 
+    - In raspberry :
 ## 5/11/2025
 - found a way to shorter time 
 - try one audio , not all
