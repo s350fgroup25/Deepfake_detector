@@ -1,4 +1,18 @@
 ## /program 
+# 1/11/2025 update 
+## test_10.py
+- Randomly select 10 audio samples:
+- Modifies the dataset so only 10 randomly chosen samples are processed (if more than 10 samples available).
+
+## test_all.py
+- Output all print statements to test_output.txt:
+- Uses Python’s redirect_stdout to write printed output into a file.
+
+## single_evalute.py
+- test_file = '2021LA1.wav'
+
+
+# 30/9/2025 update 
 ## dataset_sentence.py
 **Content**: Dataset handling for ASVspoof2019 audio files with audio preprocessing and collation.
 - ASVspoof2019Dataset: Loads audio files and labels from ASVspoof2019 dataset
