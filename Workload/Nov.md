@@ -176,21 +176,20 @@ model.safetensors: 100%|██████████████████�
 - In raspberry pi 5 :
   - Total evaluation time (s): 25.322 per 10 sample
   - avg :2.5s per 1 audio (is that real time ?)
- 
-    
-### Run single_evaluate.py
-  - Download wav :
-    - Asvspoof2021 : https://www.asvspoof.org/index2021.html
-      - ASVspoof2021_LA_eval.tar.gz :　https://zenodo.org/records/4837263
-    - test_file = '2021LA1.wav'
-    - https://zenodo.org/records/4837263
-  - test in Jupyterlab : 
-  - test in raspberry :
 
 ### Run eval-sentence.py
 - chage the max_eval_samples don't work
   - stil /557
 
+### test_sample_skip.py 
+- sample = 1
+  
+        Model loaded successfully in 1.423 seconds.
+        Fetching 1 files: 100%|███████| 1/1 [00:00<00:00, 15363.75it/s]
+        100%|███████████████████████████| 1/1 [00:00<00:00, 921.22it/s]
+        Skipping EER calculation due to single sample evaluation.
+        Positive class scores: [1.6212082e-11]
+        Labels: [0]
 ### test_sample.py 
 - sample = 10 
 
@@ -212,20 +211,23 @@ model.safetensors: 100%|██████████████████�
       threshold  1.0
       Equal Error Rate (EER): 0.0
 
-- sample = all
+- sample = all (71237)
 
       Model loaded successfully in 1.407 seconds.
       Fetching 1 files: 100%|███████████████████████████████████████████████| 1/1 [00:00<00:00, 15650.39it/s]
         5%|███▎                                                         | 3832/71237 [02:03<34:58, 32.12it/s]
-    - In Jupyterlab : 
-    - In raspberry :
-  - max_eval_samples = 10
-    - In Jupyterlab : 
-    - In raspberry :
-  - max_eval_samples = 100 
-    - In Jupyterlab : 
-    - In raspberry :
-## 5/11/2025
+
+
+### Run single_evaluate.py
+  - Download wav :
+    - Asvspoof2021 : https://www.asvspoof.org/index2021.html
+      - ASVspoof2021_LA_eval.tar.gz :　https://zenodo.org/records/4837263
+    - test_file = '2021LA1.wav'
+    - https://zenodo.org/records/4837263
+  - In Jupyterlab : 
+  - In raspberry :
+
+  ## 5/11/2025
 - found a way to shorter time 
 - try one audio , not all
 - cal the total time
