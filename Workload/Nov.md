@@ -173,11 +173,22 @@ model.safetensors: 100%|██████████████████�
 - In raspberry pi 5 :
   - Total evaluation time (s): 25.322 per 10 sample
   - avg :2.5s per 1 audio (is that real time ?)
-  
 
+- **Run single_evaluate.py**
+  - Download wav :
+    - Asvspoof2021 : https://www.asvspoof.org/index2021.html
+    - test_file = '2021LA1.wav'
+  - test in Jupyterlab : 
+  - test in raspberry :
+
+- Run eval-sentence.py
+  - max_eval_samples = 1
+  - max_eval_samples = 10
+    
 ## 5/11/2025
 - found a way to shorter time 
 - try one audio , not all
 - cal the total time
 - two py : max =1 , and single.py
-- cal import model time 
+- cal import model time
+- eval 
