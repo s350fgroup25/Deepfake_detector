@@ -180,7 +180,9 @@ model.safetensors: 100%|██████████████████�
 ### Run single_evaluate.py
   - Download wav :
     - Asvspoof2021 : https://www.asvspoof.org/index2021.html
+      - ASVspoof2021_LA_eval.tar.gz :　https://zenodo.org/records/4837263
     - test_file = '2021LA1.wav'
+    - https://zenodo.org/records/4837263
   - test in Jupyterlab : 
   - test in raspberry :
 
