@@ -3,11 +3,12 @@
 - datasets
   - 4.3 Deepfake Audio/Speech Datasets : https://arxiv.org/pdf/2208.10913
   - ASVspoof：
-    - LA_2019
-    - Speech_2021
-    - LA_2021
+    - LA_2019 (https://datashare.ed.ac.uk/handle/10283/3336)
+    - Speech_2021 (https://www.asvspoof.org/index2021.html)
+    - LA_2021 (https://www.asvspoof.org/index2021.html)
   - Voice Conversion Challenge :
-    - 2016
+    - https://datashare.ed.ac.uk/handle/10283/2040 
+    - 2016 
     - 2018
     - 2020
  - Own_audio (real , fake)
