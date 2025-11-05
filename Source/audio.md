@@ -12,3 +12,5 @@
     - 2018
     - 2020
  - Own_audio (real , fake)
+   - Audio create website : https://fakeyou.com
+   - train model ? 
