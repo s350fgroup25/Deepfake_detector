@@ -1,0 +1,13 @@
+## /my_audio
+- there are 3 type of audio (flac,wav,mp3)
+- datasets
+  - 4.3 Deepfake Audio/Speech Datasets : https://arxiv.org/pdf/2208.10913
+  - ASVspoof：
+    - LA_2019
+    - Speech_2021
+    - LA_2021
+  - Voice Conversion Challenge :
+    - 2016
+    - 2018
+    - 2020
+ - Own_audio (real , fake)
