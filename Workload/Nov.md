@@ -217,9 +217,8 @@ model.safetensors: 100%|██████████████████�
 
     
 
-  ## 5/11/2025
-- found a way to shorter time 
-- try one audio , not all
-- cal the total time
-- two py : max =1 , and single.py
-- cal import model time
+## 10/11/2025
+- draw UX (website & andriod app)
+  ![WhatsApp Image 2025-11-10 at 9 31 20 PM](https://github.com/user-attachments/assets/7d6f957c-0580-4454-8e1b-b99036726e49)
+
+## 11/11/2025
