@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASVspoof Audio File Analysis</title>
+    <style>
+        body { font-family: sans-serif; background: #f5f5f5; }
+        .container { width: 350px; margin: 64px auto; background: #fff; padding: 32px; border-radius: 14px; box-shadow: 0 0 8px #ccc; }
+        .row { display: flex; align-items: center; margin-bottom: 18px; }
+        .row:last-child { margin-bottom: 0; }
+        button { min-width: 84px; padding: 8px 12px; font-size: 17px; border-radius: 6px; border: none; background: #3892ff; color: #fff; cursor: pointer; transition: background 0.2s; }
+        button:disabled { background: #b7d1ff; cursor: not-allowed; }
+        .inner { font-size: 15px; padding: 6px 0; }
+        .progress-bar { width: 100%; height: 14px; background: #eee; border-radius: 8px; overflow: hidden; }
+        .progress-bar-inner { height: 100%; background: #3892ff; width: 0%; transition: width 0.7s; }
+        .result-real { color: #1c9e5d; font-weight: bold; }
+        .result-fake { color: #e63e3a; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Line 1: Upload Button -->
+        <div class="row">
+            <input type="file" id="upload" style="display:none">
+            <button id="uploadBtn">Upload</button>
+        </div>
+        <!-- Line 2: Text + Cancel -->
+        <div class="row">
+            <div class="inner" id="uploadText" style="flex:1"></div>
+            <button id="cancelBtn" disabled>Cancel</button>
+        </div>
+        <!-- Line 3: Submit -->
+        <div class="row">
+            <button id="submitBtn" disabled style="width:100%;">Submit</button>
+        </div>
+        <!-- Line 4: Result -->
+        <div class="row">
+            <div class="inner" id="resultText" style="width:100%"></div>
+        </div>
+        <!-- Line 5: Reset -->
+        <div class="row">
+            <button id="resetBtn" style="width:100%">Reset</button>
+        </div>
+        <!-- Progress Bar, shown only during submit -->
+        <div class="row" id="progressRow" style="display:none">
+            <div class="progress-bar" id="progressBar">
+                <div class="progress-bar-inner" id="progressInner"></div>
+            </div>
+        </div>
+    </div>
+<script>
+    let file = null;
+    const allowedTypes = ['audio/flac', 'audio/x-flac', 'audio/wav', 'audio/x-wav', 'audio/mp3', 'audio/mpeg'];
+    const maxSize = 10 * 1024 * 1024;
+
+    document.getElementById('uploadBtn').onclick = () => document.getElementById('upload').click();
+
+    document.getElementById('upload').onchange = function(e) {
+        const f = e.target.files[0];
+        if (!f) return;
+        if (!allowedTypes.includes(f.type)) {
+            alert('Only FLAC, WAV, and MP3 files are supported');
+            resetUpload();
+            return;
+        }
+        if (f.size > maxSize) {
+            alert('File size cannot exceed 10MB');
+            resetUpload();
+            return;
+        }
+        file = f;
+        document.getElementById('uploadText').textContent = `${f.name} file uploaded successfully`;
+        document.getElementById('cancelBtn').disabled = false;
+        document.getElementById('submitBtn').disabled = false;
+    };
+
+    document.getElementById('cancelBtn').onclick = function() { resetUpload(); };
+
+    document.getElementById('submitBtn').onclick = async function() {
+        if (!file) return;
+        document.getElementById('progressRow').style.display = '';
+        document.getElementById('resultText').textContent = '';
+        document.getElementById('submitBtn').disabled = true;
+        let progress = 0;
+        const progressInner = document.getElementById('progressInner');
+        async function animateProgress(to) {
+            progressInner.style.width = to + '%';
+            return new Promise(r => setTimeout(r, 700));
+        }
+        for (let step = 20; step <= 100; step += 20) await animateProgress(step);
+        let isReal = null;
+        try {
+            const formData = new FormData();
+            formData.append('file', file);
+            const resp = await fetch('/api/asvspoof/predict', {
+                method: 'POST', body: formData
+            });
+            const respJson = await resp.json();
+            if (typeof respJson.result === 'boolean') isReal = respJson.result;
+            else throw new Error();
+        } catch (err) {
+            alert('Submission failed or server error, please try again');
+            resetUpload();
+            document.getElementById('progressRow').style.display = 'none';
+            return;
+        }
+        setTimeout(() => {
+            alert('Upload successful');
+            document.getElementById('progressRow').style.display = 'none';
+            document.getElementById('submitBtn').disabled = false;
+            document.getElementById('resultText').innerHTML = isReal ?
+                '<span class="result-real">Real</span>' :
+                '<span class="result-fake">Fake</span>';
+        }, 400);
+    };
+
+    document.getElementById('resetBtn').onclick = function() {
+        resetUpload(true);
+        document.getElementById('resultText').textContent = '';
+        document.getElementById('progressRow').style.display = 'none';
+    };
+
+    function resetUpload(clearFileInput=false) {
+        file = null;
+        document.getElementById('uploadText').textContent = '';
+        document.getElementById('cancelBtn').disabled = true;
+        document.getElementById('submitBtn').disabled = true;
+        if (clearFileInput) document.getElementById('upload').value = '';
+    }
+</script>
+</body>
+</html>
