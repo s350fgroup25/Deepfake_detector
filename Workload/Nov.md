@@ -222,3 +222,23 @@ model.safetensors: 100%|██████████████████�
   ![WhatsApp Image 2025-11-10 at 9 31 20 PM](https://github.com/user-attachments/assets/7d6f957c-0580-4454-8e1b-b99036726e49)
 
 ## 11/11/2025
+- Defalt Layout : 
+<img width="719" height="496" alt="image" src="https://github.com/user-attachments/assets/4302f3ad-0080-4ab8-b37c-cb0df05765bc" />
+
+- Function 1. checking file format
+  - 1a. successfully
+    - <img width="465" height="150" alt="image" src="https://github.com/user-attachments/assets/c8e1bc41-3bc9-434f-85db-4198bc05af2a" />
+  - 1b (fail)
+    - <img width="401" height="146" alt="image" src="https://github.com/user-attachments/assets/d6b83cff-0023-4a17-b517-d2d9923d953e" />
+
+- Function 2. cancel
+  - <img width="374" height="110" alt="image" src="https://github.com/user-attachments/assets/878ae85b-e56f-4321-82bc-f1522aacab98" />
+
+- Function 3. submition 
+  - <img width="450" height="351" alt="image" src="https://github.com/user-attachments/assets/e2961ea2-b91f-4203-86e8-dea3746bf14b" />
+  - 3a successfully
+  - 3b error
+    - <img width="384" height="165" alt="image" src="https://github.com/user-attachments/assets/22b8b1b4-4afa-4575-9532-16fa4eee9613" />
+
+
+
