@@ -257,3 +257,6 @@ model.safetensors: 100%|██████████████████�
 - backgroud :https://dubawa.org/fact-checking-multimedia-contents-how-to-spot-fake-audio/
 <img width="1100" height="795" alt="image" src="https://github.com/user-attachments/assets/067017fa-4304-44ab-85d0-f688f1c032c9" />
 
+<img width="1003" height="634" alt="image" src="https://github.com/user-attachments/assets/1639a104-366f-4fbb-9b9f-230436100cef" />
+
+
