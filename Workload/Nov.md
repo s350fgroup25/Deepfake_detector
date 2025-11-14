@@ -240,5 +240,7 @@ model.safetensors: 100%|██████████████████�
   - 3b error
     - <img width="384" height="165" alt="image" src="https://github.com/user-attachments/assets/22b8b1b4-4afa-4575-9532-16fa4eee9613" />
 
+## 14/11/2025
+<img width="819" height="558" alt="image" src="https://github.com/user-attachments/assets/fac07f06-fe1c-4bb1-a18b-a83361d878a8" />
 
 
