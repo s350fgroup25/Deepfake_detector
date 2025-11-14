@@ -246,9 +246,13 @@ model.safetensors: 100%|██████████████████�
 
 - website
 <img width="694" height="244" alt="image" src="https://github.com/user-attachments/assets/e4fdb6bc-efc1-4eff-a606-aaf7b2189211" />
+
 - website (Fake)
 <img width="819" height="558" alt="image" src="https://github.com/user-attachments/assets/fac07f06-fe1c-4bb1-a18b-a83361d878a8" />
+
 - website (Real)
 <img width="819" height="562" alt="image" src="https://github.com/user-attachments/assets/30dc2278-8f99-44aa-8a16-7461924d6abf" />
 
+- UX
+- backgroud :https://dubawa.org/fact-checking-multimedia-contents-how-to-spot-fake-audio/
 
