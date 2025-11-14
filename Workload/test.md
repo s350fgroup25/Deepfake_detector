@@ -51,5 +51,8 @@ done
 
 
 ## 修改 python File使其內容只會return T/F
+/home/carmen/asvspoof/My_audio/LA_E_1345816.wav
+LA_E_1115474.wav  LA_E_1235441.wav  LA_E_1356990.wav  LA_E_1479486.wav
+LA_E_1115487.wav  LA_E_1235532.wav  LA_E_1357041.wav  LA_E_1479551.wav
 
 
