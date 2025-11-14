@@ -244,7 +244,7 @@ model.safetensors: 100%|██████████████████�
 —　cmd :
 <img width="929" height="249" alt="image" src="https://github.com/user-attachments/assets/b03e6a97-3df5-4439-b1f3-9d81ad474377" />
 
-- website
+- website (index_plain.html)
 <img width="694" height="244" alt="image" src="https://github.com/user-attachments/assets/e4fdb6bc-efc1-4eff-a606-aaf7b2189211" />
 
 - website (Fake)
