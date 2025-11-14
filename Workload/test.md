@@ -42,4 +42,14 @@ sudo apt install ffmpeg
 - 若未來想進階前端效果，可導入 Vue/React，但 demo 可用原生 JS 完成大部分互動。
 - 如果 test_sample.py 分析過程長，可以考慮用 WebSocket 顯示進度條/即時回覆。
 
+## covert flac to wav 
+mkdir -p /home/carmen/asvspoof/My_audio
+cd /home/carmen/asvspoof/datasets/LA/ASVspoof2019_LA_eval/flac
+for file in *.flac; do
+    ffmpeg -i "$file" -acodec pcm_s16le "/home/carmen/asvspoof/My_audio/${file%.flac}.wav"
+done
+
+
 ## 修改 python File使其內容只會return T/F
+
+
