@@ -241,6 +241,14 @@ model.safetensors: 100%|██████████████████�
     - <img width="384" height="165" alt="image" src="https://github.com/user-attachments/assets/22b8b1b4-4afa-4575-9532-16fa4eee9613" />
 
 ## 14/11/2025
+—　cmd :
+<img width="929" height="249" alt="image" src="https://github.com/user-attachments/assets/b03e6a97-3df5-4439-b1f3-9d81ad474377" />
+
+- website
+<img width="694" height="244" alt="image" src="https://github.com/user-attachments/assets/e4fdb6bc-efc1-4eff-a606-aaf7b2189211" />
+- website (Fake)
 <img width="819" height="558" alt="image" src="https://github.com/user-attachments/assets/fac07f06-fe1c-4bb1-a18b-a83361d878a8" />
+- website (Real)
+<img width="819" height="562" alt="image" src="https://github.com/user-attachments/assets/30dc2278-8f99-44aa-8a16-7461924d6abf" />
 
 
