@@ -1,3 +1,9 @@
+
+ssh carmen@192.168.1.149
+source venv/bin/activate
+python ~/asvspoof/program/app_plain.py
+python ~/asvspoof/program/app.py
+
 ## 重點摘要
 - 你可以用 Flask 搭配基本的 HTML + JavaScript 完成這個 DEM 網站，
 - 前後端都容易部署和修改，而且能直接在你的 Linux 主機上執行 Python/PyTorch 分析。
