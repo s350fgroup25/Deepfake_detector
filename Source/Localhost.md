@@ -1,4 +1,4 @@
-### Ｓtructure:
+### Structure:
         ~/asvspoof/
         ├── program/
         │   └── app.py                # Your Flask app backend
@@ -11,17 +11,34 @@
         │   └── templates/
         │       └── index.html        # HTML template for your web UI
 
-### Ｕsage :
-    ssh carmen@192.168.1.149
-    source venv/bin/activate
-    python ~/asvspoof/program/app_plain.py
-    python ~/asvspoof/program/app.py
-    http://127.0.0.1:5001
-    http://127.0.0.1:5000
-    cd ~/asvspoof/datasets/LA/ASVspoof2019_LA_eval/flac
-    nano ~/asvspoof/datasets/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.eval.trl.txt
-    python ~/asvspoof/program/eval_TF.py LA_E_5849185.flac
-    python ~/asvspoof/program/eval_TF_.py LA_E_5849185.flac
+### Usage Instructions
+- 1.Connect via SSH:
+  
+        ssh carmen@192.168.1.149
+- 2.Activate Python virtual environment:
+
+        source venv/bin/activate
+- 3.Run Flask backend app
+  - 3a. For basic app:
+
+        python ~/asvspoof/program/app_plain.py
+  - 3b.For advanced or structured app:
+
+        python ~/asvspoof/program/app.py
+
+- 4.Access frontend web UI:
+
+        App Plain: http://127.0.0.1:5001
+        Other App: http://127.0.0.1:5000
+
+- 5.Navigate to dataset folder for manual testing and exploration:
+
+        cd ~/asvspoof/datasets/LA/ASVspoof2019_LA_eval/flac
+        nano ~/asvspoof/datasets/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.eval.trl.txt
+- 6.Run single audio file test with your model script:
+
+        python ~/asvspoof/program/eval_TF.py LA_E_5849185.flac
+        python ~/asvspoof/program/eval_TF_.py LA_E_5849185.flac
 
 ## 重點摘要
 - 你可以用 Flask 搭配基本的 HTML + JavaScript 完成這個 DEM 網站，
@@ -68,16 +85,16 @@ sudo apt install ffmpeg
 - 如果 test_sample.py 分析過程長，可以考慮用 WebSocket 顯示進度條/即時回覆。
 
 ## covert flac to wav 
-mkdir -p /home/carmen/asvspoof/My_audio
-cd /home/carmen/asvspoof/datasets/LA/ASVspoof2019_LA_eval/flac
-for file in *.flac; do
-    ffmpeg -i "$file" -acodec pcm_s16le "/home/carmen/asvspoof/My_audio/${file%.flac}.wav"
-done
+        mkdir -p /home/carmen/asvspoof/My_audio
+        cd /home/carmen/asvspoof/datasets/LA/ASVspoof2019_LA_eval/flac
+        for file in *.flac; do
+            ffmpeg -i "$file" -acodec pcm_s16le "/home/carmen/asvspoof/My_audio/${file%.flac}.wav"
+        done
 
 
 ## 修改 python File使其內容只會return T/F
-/home/carmen/asvspoof/My_audio/LA_E_1345816.wav
-LA_E_1115474.wav  LA_E_1235441.wav  LA_E_1356990.wav  LA_E_1479486.wav
-LA_E_1115487.wav  LA_E_1235532.wav  LA_E_1357041.wav  LA_E_1479551.wav
+        /home/carmen/asvspoof/My_audio/LA_E_1345816.wav
+        LA_E_1115474.wav  LA_E_1235441.wav  LA_E_1356990.wav  LA_E_1479486.wav
+        LA_E_1115487.wav  LA_E_1235532.wav  LA_E_1357041.wav  LA_E_1479551.wav
 
 
