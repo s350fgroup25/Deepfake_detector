@@ -222,6 +222,7 @@ model.safetensors: 100%|██████████████████�
   ![WhatsApp Image 2025-11-10 at 9 31 20 PM](https://github.com/user-attachments/assets/7d6f957c-0580-4454-8e1b-b99036726e49)
 
 ## 11/11/2025
+- localhost.md (cretae website)
 - Defalt Layout : 
 <img width="719" height="496" alt="image" src="https://github.com/user-attachments/assets/4302f3ad-0080-4ab8-b37c-cb0df05765bc" />
 
@@ -254,11 +255,14 @@ model.safetensors: 100%|██████████████████�
 <img width="819" height="562" alt="image" src="https://github.com/user-attachments/assets/30dc2278-8f99-44aa-8a16-7461924d6abf" />
 
 - UX
-- there should some mistake in show result , now fix next day 
+- there should some mistake in show result , need fix next day 
 - backgroud :https://dubawa.org/fact-checking-multimedia-contents-how-to-spot-fake-audio/
 <img width="1100" height="795" alt="image" src="https://github.com/user-attachments/assets/067017fa-4304-44ab-85d0-f688f1c032c9" />
 
 <img width="1003" height="634" alt="image" src="https://github.com/user-attachments/assets/1639a104-366f-4fbb-9b9f-230436100cef" />
-## 19/11/2025
+
+### 19/11/2025
+fix bug : eval_TF_.py (only output json , do not have any waring message/log)
+fix bug : app_plain.py (tesing file in port 5000)
 <img width="916" height="568" alt="image" src="https://github.com/user-attachments/assets/01e2f76b-b095-467c-8125-3940c88f0665" />
 
