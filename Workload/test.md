@@ -3,6 +3,8 @@
     source venv/bin/activate
     python ~/asvspoof/program/app_plain.py
     python ~/asvspoof/program/app.py
+    http://127.0.0.1:5001
+    http://127.0.0.1:5000
 
 ## 重點摘要
 - 你可以用 Flask 搭配基本的 HTML + JavaScript 完成這個 DEM 網站，
