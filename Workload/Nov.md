@@ -222,7 +222,7 @@ model.safetensors: 100%|██████████████████�
   ![WhatsApp Image 2025-11-10 at 9 31 20 PM](https://github.com/user-attachments/assets/7d6f957c-0580-4454-8e1b-b99036726e49)
 
 ## 11/11/2025
-- Localhost.md (cretae website)
+- Html + JS + CSS 
 - Defalt Layout : 
 <img width="719" height="496" alt="image" src="https://github.com/user-attachments/assets/4302f3ad-0080-4ab8-b37c-cb0df05765bc" />
 
@@ -242,7 +242,7 @@ model.safetensors: 100%|██████████████████�
     - <img width="384" height="165" alt="image" src="https://github.com/user-attachments/assets/22b8b1b4-4afa-4575-9532-16fa4eee9613" />
 
 ## 14/11/2025
-—　cmd :
+- Using Flask [Localhost.md (cretae website)]
 <img width="929" height="249" alt="image" src="https://github.com/user-attachments/assets/b03e6a97-3df5-4439-b1f3-9d81ad474377" />
 
 - website (index_plain.html)
