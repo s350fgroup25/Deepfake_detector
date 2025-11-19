@@ -1,4 +1,17 @@
-### cmd : 
+### Ｓtructure:
+        ~/asvspoof/
+        ├── program/
+        │   └── app.py                # Your Flask app backend
+        ├── S_audio/                  # Folder to save/upload audio files
+        ├── www/
+        │   ├── static/
+        │   │   ├── actions.js        # JavaScript frontend logic
+        │   │   └── images/
+        │   │       └── audio-bg.jpg  # Static image assets
+        │   └── templates/
+        │       └── index.html        # HTML template for your web UI
+
+### Ｕsage :
     ssh carmen@192.168.1.149
     source venv/bin/activate
     python ~/asvspoof/program/app_plain.py
