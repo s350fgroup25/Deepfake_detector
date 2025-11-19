@@ -5,6 +5,7 @@
     python ~/asvspoof/program/app.py
     http://127.0.0.1:5001
     http://127.0.0.1:5000
+    cd ~/asvspoof/datasets/LA/ASVspoof2019_LA_eval/flac
     python ~/asvspoof/program/eval_TF.py
 
 ## 重點摘要
