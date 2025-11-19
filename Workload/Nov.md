@@ -222,7 +222,7 @@ model.safetensors: 100%|██████████████████�
   ![WhatsApp Image 2025-11-10 at 9 31 20 PM](https://github.com/user-attachments/assets/7d6f957c-0580-4454-8e1b-b99036726e49)
 
 ## 11/11/2025
-- localhost.md (cretae website)
+- Localhost.md (cretae website)
 - Defalt Layout : 
 <img width="719" height="496" alt="image" src="https://github.com/user-attachments/assets/4302f3ad-0080-4ab8-b37c-cb0df05765bc" />
 
