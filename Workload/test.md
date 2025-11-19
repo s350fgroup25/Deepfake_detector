@@ -6,7 +6,9 @@
     http://127.0.0.1:5001
     http://127.0.0.1:5000
     cd ~/asvspoof/datasets/LA/ASVspoof2019_LA_eval/flac
-    python ~/asvspoof/program/eval_TF.py
+    nano ~/asvspoof/datasets/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.eval.trl.txt
+    python ~/asvspoof/program/eval_TF.py LA_E_5849185.flac
+    python ~/asvspoof/program/eval_TF_.py LA_E_5849185.flac
 
 ## 重點摘要
 - 你可以用 Flask 搭配基本的 HTML + JavaScript 完成這個 DEM 網站，
