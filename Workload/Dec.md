@@ -29,4 +29,27 @@
 
 #### 4. HTTPS：　
 - 你的情況：RPi 作為 server，客戶端用 Windows/Mac 手機瀏覽器錄音 → 必須 HTTPS。
-- 終極方案：Flask ad-hoc SSL + 防火牆 + 瀏覽器特殊處理，保證 100% 成功！
+- 終極方案：Flask ad-hoc SSL + 防火牆 + 瀏覽器特殊處理
+
+<img width="911" height="191" alt="image" src="https://github.com/user-attachments/assets/666222d6-c5a8-4f5b-8bc7-29bffa46aeff" />
+
+<img width="735" height="643" alt="image" src="https://github.com/user-attachments/assets/1491ab2c-4e10-4980-8c1b-5ac3b4099d67" />
+
+- still fail !!!
+
+####  HTTP: (can't record)
+        if __name__ == '__main__':
+            app.run(host='0.0.0.0', port=5001, debug=False)  # 暫時去掉 ssl_context
+
+####  HTTPS: (can't connect)
+1. ssl_context='adhoc' (fail)
+
+        pip install cryptography
+        if __name__ == '__main__':
+            app.run(host='0.0.0.0', port=5001, ssl_context='adhoc', debug=False)
+
+2. 生成憑證 (openss)
+   
+        openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes -subj "/CN=192.168.1.149"
+        修改 app.py 最後一行：
+        app.run(host='0.0.0.0', port=5001, ssl_context=('cert.pem', 'key.pem'), debug=False)
