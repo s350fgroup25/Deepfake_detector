@@ -65,4 +65,8 @@
 3. Enabled → Relaunch
 4. 訪問：http://192.168.1.149:5001/record
 
+#### answer not correct :
+<img width="510" height="632" alt="image" src="https://github.com/user-attachments/assets/c318159d-12e5-441e-a36d-c2f9fb676eb5" />
+
+
 ####
