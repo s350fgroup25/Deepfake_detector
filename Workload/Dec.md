@@ -42,6 +42,7 @@
             app.run(host='0.0.0.0', port=5001, debug=False)  # 暫時去掉 ssl_context
 
 ####  HTTPS: (can't connect)
+-  record_actions_odd.js
 1. ssl_context='adhoc' (fail)
 
         pip install cryptography
@@ -53,3 +54,15 @@
         openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes -subj "/CN=192.168.1.149"
         修改 app.py 最後一行：
         app.run(host='0.0.0.0', port=5001, ssl_context=('cert.pem', 'key.pem'), debug=False)
+
+
+#### 新增 HTTP 相容 record_actions.js
+- 用 AudioContext 繞過 getUserMedia 的 HTTPS 限制，直接用瀏覽器內建音頻處理。
+#### Chrome（旗標啟用）：
+- 核心問題：navigator.mediaDevices 在 HTTP + 非 localhost 環境 = undefined。瀏覽器安全策略無法繞過！
+1. chrome://flags/#unsafely-treat-insecure-origin-as-secure
+2. 輸入：http://192.168.1.149:5001
+3. Enabled → Relaunch
+4. 訪問：http://192.168.1.149:5001/record
+
+####
