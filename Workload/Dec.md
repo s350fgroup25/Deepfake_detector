@@ -21,3 +21,8 @@
 - with other audio will not correct
 - but correct specific dataset (asvspoof 2019)
 <img width="911" height="576" alt="image" src="https://github.com/user-attachments/assets/6b8862e5-3c8e-4412-bf0c-61afe6c75c30" />
+
+
+#### 3. record
+<img width="929" height="720" alt="image" src="https://github.com/user-attachments/assets/e8ffc887-b7b9-4a66-b400-e5d9314118d3" />
+<img width="556" height="599" alt="image" src="https://github.com/user-attachments/assets/e38057c2-0fe4-4f74-a532-261b04e85926" />
