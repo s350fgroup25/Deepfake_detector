@@ -1,14 +1,14 @@
 # update 1/12/2025 
 ### Structure:
-~/asvspoof/program/
-├── app.py (已更新)
-├── templates/
-│   ├── home.html (新增首頁)
-│   ├── index.html (上載頁面)
-│   └── record.html (錄音頁面)
-└── static/
-    ├── actions.js (上載JS)
-    └── record_actions.js (錄音JS)
+        ~/asvspoof/program/
+        ├── app.py (已更新)
+        ├── templates/
+        │   ├── home.html (新增首頁)
+        │   ├── index.html (上載頁面)
+        │   └── record.html (錄音頁面)
+        └── static/
+            ├── actions.js (上載JS)
+            └── record_actions.js (錄音JS)
 
 # update 15/11/2025 
 ### Structure:
