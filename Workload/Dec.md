@@ -17,3 +17,7 @@
   - 不再出現 JSON 錯誤－僅支援原生 Python 布林值。
 2.  answer wrong : 
   <img width="962" height="928" alt="image" src="https://github.com/user-attachments/assets/e62c7d47-2975-4d23-9d63-6748aa9edb87" />
+
+- with other audio will not correct
+- but correct specific dataset (asvspoof 2019)
+<img width="911" height="576" alt="image" src="https://github.com/user-attachments/assets/6b8862e5-3c8e-4412-bf0c-61afe6c75c30" />
