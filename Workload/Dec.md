@@ -26,3 +26,7 @@
 #### 3. record
 <img width="929" height="720" alt="image" src="https://github.com/user-attachments/assets/e8ffc887-b7b9-4a66-b400-e5d9314118d3" />
 <img width="556" height="599" alt="image" src="https://github.com/user-attachments/assets/e38057c2-0fe4-4f74-a532-261b04e85926" />
+
+#### 4. HTTPS：　
+- 你的情況：RPi 作為 server，客戶端用 Windows/Mac 手機瀏覽器錄音 → 必須 HTTPS。
+- 終極方案：Flask ad-hoc SSL + 防火牆 + 瀏覽器特殊處理，保證 100% 成功！
