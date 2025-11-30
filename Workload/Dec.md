@@ -48,7 +48,7 @@
         if __name__ == '__main__':
             app.run(host='0.0.0.0', port=5001, ssl_context='adhoc', debug=False)
 
-2. 生成憑證 (openss)
+2. openssl 自簽憑證：
    
         openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes -subj "/CN=192.168.1.149"
         修改 app.py 最後一行：
