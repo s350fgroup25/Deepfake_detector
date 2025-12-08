@@ -120,4 +120,5 @@ Option A – Chrome flag (stay on HTTP, simplest)
   - 轉檔過程中音頻品質降低（雖然轉了16kHz單通道）
  
 - 測試使用外部 WAV 音檔 (用已知好聲音的 WAV 音檔做推論，看模型是否正常判斷真／假)
-- Now only flac 100% correct 
+- Now only flac 100% correct
+- Window record voice :file m4a
