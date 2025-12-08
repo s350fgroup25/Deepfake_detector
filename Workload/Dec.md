@@ -87,3 +87,9 @@ Option A – Chrome flag (stay on HTTP, simplest)
 - https://vocalremover.org/zh/voice-recorder
 <img width="675" height="121" alt="image" src="https://github.com/user-attachments/assets/56ba6450-af3a-4186-b9ac-d2e4f937c406" />
 
+## 7/12/2025
+- not problem of record part
+  - can record / play / download
+  - result not correct  
+<img width="575" height="581" alt="image" src="https://github.com/user-attachments/assets/d02851ac-11cd-4c7b-b612-d1b9b45b8023" />
+
