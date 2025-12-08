@@ -110,6 +110,8 @@ Option A – Chrome flag (stay on HTTP, simplest)
 #### problem :
 - ❌ Upload failed: Invalid file type (.webm)
   - using FFmpeg 轉檔
+    <img width="1071" height="416" alt="image" src="https://github.com/user-attachments/assets/3629b1a9-546b-4990-89e4-e89a72c15efe" />
+
 - Hz wrong : 
   - Problem in convert file type (wav) or 48kHz to 16kHz 
 
