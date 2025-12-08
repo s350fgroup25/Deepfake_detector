@@ -71,11 +71,12 @@
 <img width="510" height="632" alt="image" src="https://github.com/user-attachments/assets/c318159d-12e5-441e-a36d-c2f9fb676eb5" />
 
 ## 6/12/2025
-python ~/asvspoof/program/app.py
-nano ~/asvspoof/www/templates/record.html
-nano ~/asvspoof/www/static/record_actions.js
+- source venv/bin/activate
+- python ~/asvspoof/program/app.py
+- nano ~/asvspoof/www/templates/record.html
+- nano ~/asvspoof/www/static/record_actions.js
 
-❌ Microphone error: Cannot read properties of undefined (reading 'getUserMedia')
+#### ❌ Microphone error: Cannot read properties of undefined (reading 'getUserMedia')
 <img width="719" height="339" alt="image" src="https://github.com/user-attachments/assets/b3b77527-9ba9-4799-8cb4-9388a799d687" />
 Option A – Chrome flag (stay on HTTP, simplest)
 - chrome://flags/#unsafely-treat-insecure-origin-as-secure​
