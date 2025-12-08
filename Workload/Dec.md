@@ -79,13 +79,10 @@ nano ~/asvspoof/www/static/record_actions.js
 <img width="719" height="339" alt="image" src="https://github.com/user-attachments/assets/b3b77527-9ba9-4799-8cb4-9388a799d687" />
 Option A – Chrome flag (stay on HTTP, simplest)
 - chrome://flags/#unsafely-treat-insecure-origin-as-secure​
-In the text box, enter your Pi URL, for example:
-http://192.168.1.149:5001
+- http://192.168.1.149:5001
+<img width="823" height="205" alt="image" src="https://github.com/user-attachments/assets/af9b67e7-39fe-45ce-9cec-fed22bd12aee" />
 
-Set it to Enabled.
+- if can't record audio pls check you microphone
+- https://vocalremover.org/zh/voice-recorder
+<img width="675" height="121" alt="image" src="https://github.com/user-attachments/assets/56ba6450-af3a-4186-b9ac-d2e4f937c406" />
 
-Click Relaunch to restart Chrome.
-
-Open http://192.168.1.149:5001/record again and allow microphone.
-
-Now navigator.mediaDevices.getUserMedia will work on HTTP for that origin
