@@ -74,3 +74,18 @@
 python ~/asvspoof/program/app.py
 nano ~/asvspoof/www/templates/record.html
 nano ~/asvspoof/www/static/record_actions.js
+
+❌ Microphone error: Cannot read properties of undefined (reading 'getUserMedia')
+<img width="719" height="339" alt="image" src="https://github.com/user-attachments/assets/b3b77527-9ba9-4799-8cb4-9388a799d687" />
+Option A – Chrome flag (stay on HTTP, simplest)
+- chrome://flags/#unsafely-treat-insecure-origin-as-secure​
+In the text box, enter your Pi URL, for example:
+http://192.168.1.149:5001
+
+Set it to Enabled.
+
+Click Relaunch to restart Chrome.
+
+Open http://192.168.1.149:5001/record again and allow microphone.
+
+Now navigator.mediaDevices.getUserMedia will work on HTTP for that origin
