@@ -1,11 +1,16 @@
 ## 1/12/2025
-#### 1. mission : 
-- 右下角顯示計時器，以 hh:mm:ss 格式顯示運行時間，每秒更新一次。
+#### Mission : 
+- 右下角顯示計時器，以 hh:mm:ss 格式顯示運行時間，每秒更新一次。 ()
 - 簡化的頁面佈局，只有兩個按鈕：選擇檔案和上傳並分析。
 - 客戶端 JS 處理文件選擇、驗證、帶有進度條的上傳和分析顯示。
 - 在應用程式啟動時全域載入一次模型（在全域變數中）
 - 運行應用程序，監聽所有接口，端口 5001，關閉調試模式。
 - 部署為生產 Web Server (http://192.168.1.149:5001/)
+
+#### done :
+1. timer  :　upload than cal the time ~ 2s
+2. user-friendly - good looking - only only button
+3. web server : ip:port (access in different device)
 
 #### 2. Fix bug :
 1. bug: only can 16kHz 
@@ -24,7 +29,7 @@
 
 
 ## 4/12/2025
-#### 3. record
+#### Record
 <img width="929" height="720" alt="image" src="https://github.com/user-attachments/assets/e8ffc887-b7b9-4a66-b400-e5d9314118d3" />
 <img width="556" height="599" alt="image" src="https://github.com/user-attachments/assets/e38057c2-0fe4-4f74-a532-261b04e85926" />
 
@@ -56,7 +61,6 @@
         修改 app.py 最後一行：
         app.run(host='0.0.0.0', port=5001, ssl_context=('cert.pem', 'key.pem'), debug=False)
 
-
 #### 新增 HTTP 相容 record_actions.js
 - 用 AudioContext 繞過 getUserMedia 的 HTTPS 限制，直接用瀏覽器內建音頻處理。
 #### Chrome（旗標啟用）：
@@ -66,11 +70,17 @@
 3. Enabled → Relaunch
 4. 訪問：http://192.168.1.149:5001/record
 
-#### answer not correct :
+
+#### Done 
+- record function 
+- but answer not correct :
 - record_odd.html + record_actions_odd.js
 <img width="510" height="632" alt="image" src="https://github.com/user-attachments/assets/c318159d-12e5-441e-a36d-c2f9fb676eb5" />
 
 ## 6/12/2025
+- found that the record function not really record the sound
+
+### Fix 
 - source venv/bin/activate
 - python ~/asvspoof/program/app.py
 - nano ~/asvspoof/www/templates/record.html
@@ -87,9 +97,27 @@ Option A – Chrome flag (stay on HTTP, simplest)
 - https://vocalremover.org/zh/voice-recorder
 <img width="675" height="121" alt="image" src="https://github.com/user-attachments/assets/56ba6450-af3a-4186-b9ac-d2e4f937c406" />
 
+#### done 
+- can truly record the voice and play and downlod
+
 ## 7/12/2025
 - not problem of record part
   - can record / play / download
-  - result not correct  
+#### Try upload the record file and analze
+- can upload but result not correct
 <img width="575" height="581" alt="image" src="https://github.com/user-attachments/assets/d02851ac-11cd-4c7b-b612-d1b9b45b8023" />
 
+#### problem :
+- ❌ Upload failed: Invalid file type (.webm)
+  - using FFmpeg 轉檔
+- Hz wrong : 
+  - Problem in convert file type (wav) or 48kHz to 16kHz 
+
+#### Note 
+- 結果判定是假的，可能原因包含：
+  - 錄音格式或音質有問題（頻率、通道數）
+  - 麥克風輸入有干擾或過小聲（導致模型判斷為假）
+  - 轉檔過程中音頻品質降低（雖然轉了16kHz單通道）
+ 
+- 測試使用外部 WAV 音檔 (用已知好聲音的 WAV 音檔做推論，看模型是否正常判斷真／假)
+- Now only flac 100% correct 
