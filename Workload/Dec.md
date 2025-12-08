@@ -122,4 +122,4 @@ Option A – Chrome flag (stay on HTTP, simplest)
 - 測試使用外部 WAV 音檔 (用已知好聲音的 WAV 音檔做推論，看模型是否正常判斷真／假)
 - Now only flac 100% correct
 - Window record voice :file m4a
-- supporting file type
+- supporting file type : as normal as commom
