@@ -182,12 +182,16 @@ Option A – Chrome flag (stay on HTTP, simplest)
 ## 21/12/2025
 - To test the model credibility :
   - put all covent file , record file , also fake file and use the single_evlauta.py
-  - create a local file /testSet/sample , /testSet/record , /testSet/fake ,/testSet/covent
-  - each create 3 sample
+  - create a local file /testSet/record , /testSet/fake ,/testSet/covent
+  - each create 3 sample : create wav file 
   - used the above sample to single_evlauta.py
-- result (orgigin , result )
-    1. ( T , ) , ( F , )
-    2. ( T , )
-    3. ( F , ) 
-    4. ( T , ) ( F , ) (  , )
+  - cd asvspoof/S_audio
+  - mv fake_1766340976.wav /home/carmen/asvspoof/testSet/fake/fake3.wav
+  - ls /home/carmen/asvspoof/testSet
+- result (orgigin , result  , single)
+    1. /testSet/record ( T, F , ): hello, ( T, F , ) : goodmoring, ( T, F , ) : empty
+    2. /testSet/covent ( T , F , ) - convert1 from .wemb , ( T , F , )- convert2 from .m4a ,  ( F , F , ): flac F , (T , T ) : flac T
+    3. /testSet/fake ( F, T , ): i am fine , ( F, F , ): garbled char , ( F, T , ): <script>alert(1);</script>
 
+- found that /convert and /fake no auto delete function
+- No XSS injectiion 
