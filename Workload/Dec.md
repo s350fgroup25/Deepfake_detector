@@ -188,10 +188,30 @@ Option A – Chrome flag (stay on HTTP, simplest)
   - cd asvspoof/S_audio
   - mv fake_1766340976.wav /home/carmen/asvspoof/testSet/fake/fake3.wav
   - ls /home/carmen/asvspoof/testSet
+-  nano single_evaluate.py
+
+        if __name__ == '__main__':
+            test_file = '/home/carmen/asvspoof/datasets/LA/ASVspoof2019_LA_eval/wav/LA_E_1000147.wav'
+            prob = infer_single_audio(test_file)
+            print(f"Positive class probability: {prob:.4f}")
+    
+        /home/carmen/asvspoof/testSet/covent/covent1.wav
+        /home/carmen/asvspoof/testSet/fake/fake1.wav
+        /home/carmen/asvspoof/testSet/record/recording_1.wav
+
 - result (orgigin , result  , single)
     1. /testSet/record ( T, F , ): hello, ( T, F , ) : goodmoring, ( T, F , ) : empty
     2. /testSet/covent ( T , F , ) - convert1 from .wemb , ( T , F , )- convert2 from .m4a ,  ( F , F , ): flac F , (T , T ) : flac T
-    3. /testSet/fake ( F, T , ): i am fine , ( F, F , ): garbled char , ( F, T , ): <script>alert(1);</script>
+    3. /testSet/fake ( F, T , ): i am fine , ( F, F , ): garbled text , ( F, T , ): <script>alert(1);</script>
 
-- found that /convert and /fake no auto delete function
-- No XSS injectiion 
+  - found that /convert and /fake no auto delete function
+  - No XSS injectiion
+
+- run single_evaluate.py problem
+  <img width="963" height="433" alt="image" src="https://github.com/user-attachments/assets/4fc108fe-1214-4300-987c-408273c113bd" />
+
+- pip uninstall torch torchaudio torchcodec -y
+date && sudo apt install ffmpeg libsndfile1-dev
+  - no import torch , torchcodec
+  -  sudo apt update && sudo apt install -y ffmpeg libsndfile1-dev libatlas-base-dev
+  -  pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
