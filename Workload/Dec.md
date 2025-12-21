@@ -127,3 +127,42 @@ Option A – Chrome flag (stay on HTTP, simplest)
 - Now only flac 100% correct
 - Window record voice :file m4a
 - supporting file type : as normal as commom
+
+## 17/12/2025
+1. add home button to each page => user friendly
+- <img width="121" height="41" alt="image" src="https://github.com/user-attachments/assets/bc1b661c-be61-4f5a-bcf2-0db52135fb4e" />
+
+2. Fix the rocord page
+  - change the record type form .webm to wav 
+  - record_actions.js：改成直接錄 WAV（16kHz PCM）
+    - 改成錄 raw PCM，自己封裝成 16kHz/mono/16bit WAV
+    - as 原生 MediaRecorder 幾乎都不支援 audio/wav 直接輸出，只支援 audio/webm / audio/ogg 等壓縮格式
+    <img width="543" height="490" alt="image" src="https://github.com/user-attachments/assets/f4fb7b82-fa93-4174-9a38-d08426d0f973" />
+3. result still fix
+  - <img width="516" height="71" alt="image" src="https://github.com/user-attachments/assets/9f287a18-2fda-4200-8195-52db27cbbad5" />
+  - try find reason , now only the sample show ture
+  - test other sample form other dataset 
+
+
+## 20/12/2025
+- pip install ffmpeg-python
+- nano ~/asvspoof/www/templates/convert.html
+- nano ~/asvspoof/www/static/convert.js
+- create a new page convert.html that support common audio type
+  - convert flac , m4a , mp3 ,webm to wav and 16kHz
+  - 後端 /convert 用 ffmpeg 統一轉成 16kHz mono WAV
+
+## Home page : 
+<img width="913" height="856" alt="image" src="https://github.com/user-attachments/assets/6bc2388f-f434-4bd4-86ef-ba235869d008" />
+
+## convert page
+<img width="512" height="577" alt="image" src="https://github.com/user-attachments/assets/7ebf1e0a-4c09-4de7-842b-878412c0e565" />
+
+- need to click convert button then have next function
+
+<img width="488" height="932" alt="image" src="https://github.com/user-attachments/assets/51e17f94-aa1d-43cc-9552-f8f8bd6bdc43" />
+
+- also can listen some not driectly audio type , e.g flac 
+- driectly submit to model , pls consider delete the upload page , as function deplicate 
+
+
