@@ -138,13 +138,13 @@ Option A – Chrome flag (stay on HTTP, simplest)
     - 改成錄 raw PCM，自己封裝成 16kHz/mono/16bit WAV
     - as 原生 MediaRecorder 幾乎都不支援 audio/wav 直接輸出，只支援 audio/webm / audio/ogg 等壓縮格式
     <img width="543" height="490" alt="image" src="https://github.com/user-attachments/assets/f4fb7b82-fa93-4174-9a38-d08426d0f973" />
-3. result still fix
+3. result still fake
   - <img width="516" height="71" alt="image" src="https://github.com/user-attachments/assets/9f287a18-2fda-4200-8195-52db27cbbad5" />
   - try find reason , now only the sample show ture
   - test other sample form other dataset 
 
 
-## 20/12/2025
+## 19/12/2025
 - pip install ffmpeg-python
 - nano ~/asvspoof/www/templates/convert.html
 - nano ~/asvspoof/www/static/convert.js
@@ -163,6 +163,31 @@ Option A – Chrome flag (stay on HTTP, simplest)
 <img width="488" height="932" alt="image" src="https://github.com/user-attachments/assets/51e17f94-aa1d-43cc-9552-f8f8bd6bdc43" />
 
 - also can listen some not driectly audio type , e.g flac 
-- driectly submit to model , pls consider delete the upload page , as function deplicate 
+- driectly submit to model , pls consider delete the upload page , as function deplicate
 
+## 20/12/2025
+- nano ~/asvspoof/program/app.py
+- nano ~/asvspoof/www/templates/fake.html
+- nano ~/asvspoof/www/static/fake.js
+
+- To test the model credibility :
+  - create a fake audio using Text to speech method
+  - pip install gTTS
+  - clearly a obot , but show true !!!!!!!!!!!
+- <img width="516" height="671" alt="image" src="https://github.com/user-attachments/assets/b0cbf987-9c1f-46d6-9620-3ed59234685b" />
+
+- sometime fake 
+<img width="469" height="629" alt="image" src="https://github.com/user-attachments/assets/c25a92e1-5c79-49b8-90ff-f238a974ed92" />
+
+## 21/12/2025
+- To test the model credibility :
+  - put all covent file , record file , also fake file and use the single_evlauta.py
+  - create a local file /testSet/sample , /testSet/record , /testSet/fake ,/testSet/covent
+  - each create 3 sample
+  - used the above sample to single_evlauta.py
+- result (orgigin , result )
+    1. ( T , ) , ( F , )
+    2. ( T , )
+    3. ( F , ) 
+    4. ( T , ) ( F , ) (  , )
 
