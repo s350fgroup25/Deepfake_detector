@@ -200,7 +200,7 @@ Option A – Chrome flag (stay on HTTP, simplest)
         /home/carmen/asvspoof/testSet/record/recording_1.wav
 
 - result (orgigin , result  , single)
-    1. /testSet/record ( T, F , ): hello, ( T, F , ) : goodmoring, ( T, F , ) : empty
+    1. /testSet/record ( T, F , F ): hello, ( T, F , ) : goodmoring, ( T, F , ) : empty
     2. /testSet/covent ( T , F , ) - convert1 from .wemb , ( T , F , )- convert2 from .m4a ,  ( F , F , ): flac F , (T , T ) : flac T
     3. /testSet/fake ( F, T , ): i am fine , ( F, F , ): garbled text , ( F, T , ): <script>alert(1);</script>
 
@@ -215,3 +215,7 @@ date && sudo apt install ffmpeg libsndfile1-dev
   - no import torch , torchcodec
   -  sudo apt update && sudo apt install -y ffmpeg libsndfile1-dev libatlas-base-dev
   -  pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+
+- python single_evaluate.py:
+- convert1 : false : <img width="608" height="165" alt="image" src="https://github.com/user-attachments/assets/d79526a5-402d-49fd-9983-e49229ce75cf" />
+- fake1 : true <img width="621" height="162" alt="image" src="https://github.com/user-attachments/assets/628713df-42ad-46d2-80fa-e438a03fe585" />
