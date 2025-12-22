@@ -210,12 +210,19 @@ Option A – Chrome flag (stay on HTTP, simplest)
 - run single_evaluate.py problem
   <img width="963" height="433" alt="image" src="https://github.com/user-attachments/assets/4fc108fe-1214-4300-987c-408273c113bd" />
 
+# 22/12/2025
 - pip uninstall torch torchaudio torchcodec -y
 date && sudo apt install ffmpeg libsndfile1-dev
   - no import torch , torchcodec
   -  sudo apt update && sudo apt install -y ffmpeg libsndfile1-dev libatlas-base-dev
   -  pip install torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+  -  can't install TorchCodec  , no version support on raspberry , run single_evaluate.py in jupyterhub , result still wrong
+  -  not program transfer problem  
 
 - python single_evaluate.py:
 - convert1 : false : <img width="608" height="165" alt="image" src="https://github.com/user-attachments/assets/d79526a5-402d-49fd-9983-e49229ce75cf" />
 - fake1 : true <img width="621" height="162" alt="image" src="https://github.com/user-attachments/assets/628713df-42ad-46d2-80fa-e438a03fe585" />
+
+- add auto delete function to /covert, /fake
+- <img width="972" height="66" alt="image" src="https://github.com/user-attachments/assets/957fcfe3-b073-4017-9aaf-6cd0855dc2cb" />
+
