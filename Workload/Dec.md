@@ -225,4 +225,6 @@ date && sudo apt install ffmpeg libsndfile1-dev
 
 - add auto delete function to /covert, /fake
 - <img width="972" height="66" alt="image" src="https://github.com/user-attachments/assets/957fcfe3-b073-4017-9aaf-6cd0855dc2cb" />
-
+- rm ~/asvspoof/S_audio/*.wav
+- no effect still  alive , maybe as it still can play the audio ?
+- can change the upload page be Quick Use , can change the name  
