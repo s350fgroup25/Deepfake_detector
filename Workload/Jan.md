@@ -6,13 +6,12 @@
 - downgrade to no-wifi part , also test local min can work or not , and test result
 
 #### Task 1 : Check : 
-
-
 - using single_evaluate.py
-nano single_evaluate.py
-/home/carmen/asvspoof/datasets/test/record_sample1.wav
-/home/carmen/asvspoof/datasets/test/fake1.wav
-- 
+
+           nano single_evaluate.py
+          /home/carmen/asvspoof/datasets/test/record_sample1.wav
+          home/carmen/asvspoof/datasets/test/fake1.wav
+
 - Target :
 
         record_sample1.wav: Positive class probability: 0.1345
@@ -30,8 +29,14 @@ nano single_evaluate.py
 => need to consider the accuracy of the model 
 
 #### Task 2 : local mic 
-source venv/bin/activate
+source venv2_asvspoof/bin/activate
 python ~/asvspoof/program/app.py
-- no need getUserMedia + HTTPS  => work
+- http://localhost:5001/record
+- but 192.168.1.149 need getUserMedia / HTTPS
+- have sound , work 
 
-#### Task 3 : wifi 
+#### Task 3 : no wifi 
+- try to downngrade to 2.4.0 but cant and more error
+- now create a new venv -- venv2_asvspoof
+- also create a backup :  ~/asvspoof_backup/requirements_working.txt
+  
