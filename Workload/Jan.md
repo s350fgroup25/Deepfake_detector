@@ -24,6 +24,6 @@
 => need to consider the accuracy of the model 
 
 #### Task 2 : local mic 
-- no need get ...  => work
+- no need getUserMedia + HTTPS  => work
 
 #### Task 3 : wifi 
