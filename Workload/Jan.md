@@ -41,10 +41,15 @@ python ~/asvspoof/program/app.py
 - also create a backup :  ~/asvspoof_backup/requirements_working.txt
   
 ### 26/1/2026
+source venv2_asvspoof/bin/activate
+python ~/asvspoof/program/app.py
 ##### Part 1 : 
 - test the new model in jupterlab (success)
 - download model.py , single.py , model.safetensors
 -  <img width="874" height="416" alt="image" src="https://github.com/user-attachments/assets/a0755ba3-e34e-4d2b-94b7-923ad798074b" />
 ##### Part 2 : test in raspberry pi 
 - download
-- run 
+- run
+- no torchcodec : <img width="843" height="604" alt="image" src="https://github.com/user-attachments/assets/c5ff2bfd-d049-4b0f-aee7-049ee9f02484" />
+- app.py : better performance , can sometime can show , maybe accent ?
+- 
