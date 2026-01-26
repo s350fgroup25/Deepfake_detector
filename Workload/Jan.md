@@ -52,4 +52,4 @@ python ~/asvspoof/program/app.py
 - run
 - no torchcodec : <img width="843" height="604" alt="image" src="https://github.com/user-attachments/assets/c5ff2bfd-d049-4b0f-aee7-049ee9f02484" />
 - app.py : better performance , can sometime can show , maybe accent ?
-- 
+- can localhost , can record 
