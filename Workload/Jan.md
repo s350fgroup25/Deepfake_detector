@@ -40,3 +40,11 @@ python ~/asvspoof/program/app.py
 - now create a new venv -- venv2_asvspoof
 - also create a backup :  ~/asvspoof_backup/requirements_working.txt
   
+### 26/1/2026
+##### Part 1 : 
+- test the new model in jupterlab (success)
+- download model.py , single.py , model.safetensors
+-  <img width="874" height="416" alt="image" src="https://github.com/user-attachments/assets/a0755ba3-e34e-4d2b-94b7-923ad798074b" />
+##### Part 2 : test in raspberry pi 
+- download
+- run 
