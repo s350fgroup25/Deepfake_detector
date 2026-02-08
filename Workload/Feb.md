@@ -1,4 +1,4 @@
-## 6/2/2026
+## 1/2/2026
 #### Fake Biden robocall : Clip0
 - https://soundcloud.com/user-429524614/fake-joe-biden-robocall-nh
 #### Test:Clip1-5
@@ -45,11 +45,15 @@
 - English
 - 🔍 Analysis: recording_1770550371556.wav → Real: 0.2579, Fake: 0.7421
 
-
-
 #### next step : 
 1. consider :maybe : real % around 30% , or 10 %
 - most real audio around 30% , and no fake audio large 10 %
 - maybe 3 option , 25 up show real , lower 10 show fake , middle maybe ??? 
 3.  upload page more that one file , quick start ? 
 4.  creare own voice cloneing ? 
+
+## 8/2/2026
+#### change the real %
+- 統一解決方案 - 創建 static/ai-result.js 共用模組
+- const REAL_THRESHOLD = 0.10;  // 改成10%
+- change it to 10 %, as there are no fake file higher that 10 %
