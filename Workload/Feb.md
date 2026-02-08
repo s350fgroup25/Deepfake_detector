@@ -25,7 +25,8 @@
 - 🔍 Analysis: convert_clip8_cut_1770544539.wav → Real: 0.0012, Fake: 0.9988
 - 🔍 Analysis: convert_Clip9_HP_1770543824.wav → Real: 0.0160, Fake: 0.9840
 - 🔍 Analysis: convert_Clip10_HP_1770543853.wav → Real: 0.0181, Fake: 0.9819
-
+- 🔍 Analysis: 2026-02-08_15-35-38_1770545989.wav → Real: 0.0126, Fake: 0.9874
+- 🔍 Analysis: 2026-02-08_15-38-11_1770546042.wav → Real: 0.0130, Fake: 0.9870
 #### next step : 
 1. consider :maybe : real % around 30% , or 10 %
 - most real audio around 30% , and no fake audio large 10 %
