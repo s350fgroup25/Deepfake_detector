@@ -59,14 +59,16 @@
 - change it to 10 %, as there are no fake file higher that 10 %
 
 // Replace the AI result section with:
-elements.result.innerHTML = result.prob_real > 0.1 ? 
-    '<span class="green">✅ REAL</span>' : 
-    '<span class="red">❌ FAKE</span>';
-elements.confidence.innerHTML = '';  // Hide percentages
+
+    elements.result.innerHTML = result.prob_real > 0.1 ? 
+        '<span class="green">✅ REAL</span>' : 
+        '<span class="red">❌ FAKE</span>';
+    elements.confidence.innerHTML = '';  // Hide percentages
 
 // Update HTML templates 
-<script src="/static/ai-result.js"></script>
+
+    <script src="/static/ai-result.js"></script>
 
 #### upload page to quick start 
 - can upload 1 -10 file , just one button 
-#### demo 
+#### demo  video 
