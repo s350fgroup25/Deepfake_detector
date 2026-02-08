@@ -45,6 +45,11 @@
 - English
 - 🔍 Analysis: recording_1770550371556.wav → Real: 0.2579, Fake: 0.7421
 
+// dataset 
+🔍 Analysis: convert_LA_E_1027501_1770563128.wav → Real: 0.3330, Fake: 0.6670
+🔍 Analysis: convert_LA_E_1000273_1770563099.wav → Real: 0.0500, Fake: 0.9500
+🔍 Analysis: convert_LA_E_1000791_1770562982.wav → Real: 0.0000, Fake: 1.0000
+🔍 Analysis: convert_LA_E_1000147_1770562955.wav → Real: 0.3593, Fake: 0.6407
 #### next step : 
 1. consider :maybe : real % around 30% , or 10 %
 - most real audio around 30% , and no fake audio large 10 %
