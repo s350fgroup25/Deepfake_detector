@@ -28,6 +28,7 @@
 
 #### next step : 
 1. consider :maybe : real % around 30% , or 10 %
-- most real audio around 30% , and no fake audio large 10 % 
+- most real audio around 30% , and no fake audio large 10 %
+- maybe 3 option , 25 up show real , lower 10 show fake , middle maybe ??? 
 3.  upload page more that one file , quick start ? 
 4.  creare own voice cloneing ? 
