@@ -16,7 +16,7 @@
 #### data 
 - 🔍 Analysis: convert_Clip0_Fake_Biden_robocall_1770543366.wav → Real: 0.0069, Fake: 0.9931
 - 🔍 Analysis: convert_Clip1_Real_Biden_1770543386.wav → Real: 0.3105, Fake: 0.6895
-- 🔍 Analysis: convert_Clip2_Real_trump_1770543537.wav → Real: 0.0396, Fake: 0.9604
+- 🔍 Analysis: convert_Clip2_Real_trump_1770543537.wav → Real: 0.0396, Fake: 0.9604 (noise)
 - 🔍 Analysis: convert_Clip3_Real_Biden_1770543577.wav → Real: 0.0025, Fake: 0.9975 (noise)
 - 🔍 Analysis: convert_Clip4_Fake_Biden_1770543645.wav → Real: 0.0525, Fake: 0.9475 
 - 🔍 Analysis: convert_Clip5_Fake_trump_1770543692.wav → Real: 0.0327, Fake: 0.9673
@@ -27,7 +27,7 @@
 - 🔍 Analysis: convert_Clip9_HP_1770543824.wav → Real: 0.0160, Fake: 0.9840
 - 🔍 Analysis: convert_Clip10_HP_1770543853.wav → Real: 0.0181, Fake: 0.9819
 
-//video 
+//video (problem , no video is real)
 - 🔍 Analysis: 2026-02-08_15-35-38_1770545989.wav → Real: 0.0126, Fake: 0.9874
 - 🔍 Analysis: 2026-02-08_15-38-11_1770546042.wav → Real: 0.0130, Fake: 0.9870
 - 🔍 Analysis: 2026-02-08_19-42-45_1770551072.wav → Real: 0.0003, Fake: 0.9997
@@ -57,3 +57,16 @@
 - 統一解決方案 - 創建 static/ai-result.js 共用模組
 - const REAL_THRESHOLD = 0.10;  // 改成10%
 - change it to 10 %, as there are no fake file higher that 10 %
+
+// Replace the AI result section with:
+elements.result.innerHTML = result.prob_real > 0.1 ? 
+    '<span class="green">✅ REAL</span>' : 
+    '<span class="red">❌ FAKE</span>';
+elements.confidence.innerHTML = '';  // Hide percentages
+
+// Update HTML templates 
+<script src="/static/ai-result.js"></script>
+
+#### upload page to quick start 
+- can upload 1 -10 file , just one button 
+#### demo 
