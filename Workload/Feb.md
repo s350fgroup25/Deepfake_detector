@@ -46,10 +46,11 @@
 - 🔍 Analysis: recording_1770550371556.wav → Real: 0.2579, Fake: 0.7421
 
 // dataset 
-🔍 Analysis: convert_LA_E_1027501_1770563128.wav → Real: 0.3330, Fake: 0.6670
-🔍 Analysis: convert_LA_E_1000273_1770563099.wav → Real: 0.0500, Fake: 0.9500
-🔍 Analysis: convert_LA_E_1000791_1770562982.wav → Real: 0.0000, Fake: 1.0000
-🔍 Analysis: convert_LA_E_1000147_1770562955.wav → Real: 0.3593, Fake: 0.6407
+- 🔍 Analysis: convert_LA_E_1027501_1770563128.wav → Real: 0.3330, Fake: 0.6670
+- 🔍 Analysis: convert_LA_E_1000273_1770563099.wav → Real: 0.0500, Fake: 0.9500
+- 🔍 Analysis: convert_LA_E_1000791_1770562982.wav → Real: 0.0000, Fake: 1.0000
+- 🔍 Analysis: convert_LA_E_1000147_1770562955.wav → Real: 0.3593, Fake: 0.6407
+
 #### next step : 
 1. consider :maybe : real % around 30% , or 10 %
 - most real audio around 30% , and no fake audio large 10 %
@@ -77,3 +78,11 @@
 #### upload page to quick start 
 - can upload 1 -10 file , just one button 
 #### demo  video 
+
+## 16/2/2026 /realtime_continuous
+<img width="405" height="154" alt="image" src="https://github.com/user-attachments/assets/00602302-bf2d-4bf0-b152-4c865d6882db" />
+
+- 每4秒自動切片分析，顯示Model原始輸出(Real: 0.7530, Fake: 0.2470)。
+- 可調threshold(10%/30%/50%)，音量偵測(RMS)，連續滾動顯示50行結果
+
+## 22/2/2026 
