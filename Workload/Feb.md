@@ -85,62 +85,131 @@
 - 每4秒自動切片分析，顯示Model原始輸出(Real: 0.7530, Fake: 0.2470)。
 - 可調threshold(10%/30%/50%)，音量偵測(RMS)，連續滾動顯示50行結果
 
+
+## 真實用戶模擬細節: 
+- Upload頁面測試 ≡ 用戶拖曳FLAC → 點Analyze按鈕
+- Record頁面測試 ≡ 用戶錄音5s → 自動轉16kHz → Analyze  
+- Realtime頁面 ≡ 每4s自動觸發 (已實作前端測試)
+
 ## 21/2/2026 /evaluation
-pre-process : 從標籤檔提取 + 隨機選10,000檔案腳本
-jupyter:(venv) carmen@hkmu-1080ti:~/asvspoof$ python prepare_eval_dataset.py => eval_10000_dataset.csv
-(venv) carmen@hkmu-1080ti:~/asvspoof$ ls -la eval_10000_dataset.csv
-  -rw-r--r-- 1 carmen carmen 230015 Feb 25 01:02 eval_10000_dataset.csv
-head eval_10000_dataset.csv
-  filename,label
-  LA_E_2714189.flac,real
-  LA_E_8624167.flac,real
-  LA_E_6677864.flac,real
-  LA_E_1357107.flac,real
-  LA_E_7531986.flac,real
-  LA_E_9050668.flac,real
-  LA_E_8353060.flac,real
-  LA_E_2368562.flac,real
-  LA_E_6619416.flac,real
+- 1. /preprocess : 從標籤檔提取 + 隨機選10,000檔案腳本
+- jupyter:(venv) carmen@hkmu-1080ti:~/asvspoof$ python prepare_eval_dataset.py => eval_10000_dataset.csv
+  
+      (venv) carmen@hkmu-1080ti:~/asvspoof$ ls -la eval_10000_dataset.csv
+        -rw-r--r-- 1 carmen carmen 230015 Feb 25 01:02 eval_10000_dataset.csv
+      head eval_10000_dataset.csv
+        filename,label
+        LA_E_2714189.flac,real
+        LA_E_8624167.flac,real
+        LA_E_6677864.flac,real
+        LA_E_1357107.flac,real
+        LA_E_7531986.flac,real
+        LA_E_9050668.flac,real
+        LA_E_8353060.flac,real
+        LA_E_2368562.flac,real
+        LA_E_6619416.flac,real
 
-## 22/2/2026 
-真實用戶模擬細節: 
-Upload頁面測試 ≡ 用戶拖曳FLAC → 點Analyze按鈕
-Record頁面測試 ≡ 用戶錄音5s → 自動轉16kHz → Analyze  
-Realtime頁面 ≡ 每4s自動觸發 (已實作前端測試)
+## 22/2/2026 report--draft 
+- ASVspoof 2019 (10,000 FLAC) → 自動上傳你的各HTML頁面 → 記錄真實時間 → 收集Model輸出 → 生成統計報告 
+  - /eval_platform.py
 
-eval_10000_dataset.csv
-PROTOCOL_FILE = "/home/carmen/asvspoof/datasets/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.eval.trl.txt" 
-FLAC_DIR = Path("/home/carmen/asvspoof/datasets/LA/ASVspoof2019_LA_eval/flac")
+        BASE_URL = "http://localhost:5001"  # 你的 Flask 服務
+        FLAC_DIR = Path("/home/carmen/asvspoof/datasets/LA/ASVspoof2019_LA_eval/flac")
+        DATASET_CSV = "/home/carmen/asvspoof/preprocess/eval_20_dataset.csv" 
+        RESULTS_CSV = "/home/carmen/asvspoof/results/platform_eval_results_20.csv"
+        SUMMARY_JSON = "/home/carmen/asvspoof/results/platform_eval_summary_20.json"
 
 
-/eval_platform.py
-=> ASVspoof 2019 (10,000 FLAC) → 自動上傳你的各HTML頁面 → 記錄真實時間 → 收集Model輸出 → 生成統計報告
+- python eval_platform.py
+  
+        📁 使用 FLAC 路徑: /home/carmen/asvspoof/datasets/LA/ASVspoof2019_LA_eval/flac
+        📁 使用 CSV 資料集: /home/carmen/asvspoof/preprocess/eval_20_dataset.csv
+        🚀 預設測試 20 個檔案
+        🔥 開始平台真實用戶評估 (upload + analyze only)...
+        ✅ 載入CSV資料集: 20 個有效檔案
+           真實: 10
+           假: 10
+        📊 準備測試 20 個檔案
+        Upload/Analyze: 100%|████████████████████████████████████████████████████████████████| 20/20 [00:00<00:00, 10434.89it/s]
+        收集結果: 100%|█████████████████████████████████████████████████████████████████████| 20/20 [00:00<00:00, 152797.96it/s]
+        ✅ 完成！成功測試 20 個檔案
+        
+        ==========================================================================================
+        🎯 PLATFORM COMPREHENSIVE EVALUATION REPORT
+        ==========================================================================================
+        📁 總測試檔案: 20
+        🎵 真實:  10 | 假:  10
+        
+        ⏱️  TIME ANALYSIS (upload + analyze only)
+        ------------------------------------------------------------
+        💾 總運行時間:       215.5s
+        ⚡ 最快單檔:         5.488s
+        🐌 最慢單檔:        16.466s
+        📈 平均單檔時間:    10.775s
+        🎯 P95時間:         14.728s
+        ⬆️  上傳平均時間:    0.029s
+        🔍 分析平均時間:    10.746s
+        
+        🤖 MODEL PERFORMANCE (Real Probability Score)
+        ------------------------------------------------------------
+        ✅ 真實聲音 (Real Score):
+           最低:  1.0000 | 最高:  1.0000 | 平均:  1.0000
+        ❌ 虛假聲音 (Real Score):
+           最低:  0.0000 | 最高:  0.8765 | 平均:  0.0903
+        
+        📊 STANDARD DETECTION METRICS
+        ------------------------------------------------------------
+        🎯 EER (等錯誤率):     0.0000
+        📈 AUC (ROC曲線):      0.0000
+        ⚖️  EER最佳閾值:      inf
+        
+        💾 報告已保存: /home/carmen/asvspoof/results/platform_eval_results_20.csv | /home/carmen/asvspoof/results/platform_eval_summary_20.json
 
-Step 1: 載入資料
-├── 掃描 /path/to/eval/flac/*.flac (10,000檔案)
-├── 讀取 protocol.txt 標籤 (bonafide/spoof)
-└── 準備測試清單
+- /home/carmen/asvspoof/results/platform_eval_summary_20.json
+  
+        {
+          "dataset": {
+            "total": 20,
+            "real": 10,
+            "fake": 10
+          },
+          "timing": {
+            "program_total": 58.02328409199981,
+            "total_runtime": 220.86291885375977,
+            "min_time": 5.494817495346069,
+            "max_time": 16.77876114845276,
+            "avg_time": 11.043145942687989,
+            "p95_time": 15.557893061637879,
+            "upload_avg": 0.025340175628662108,
+            "analyze_avg": 11.017805767059325,
+            "analyze_min": 5.4637041091918945,
+            "analyze_max": 16.751309156417847,
+            "files_count": 20
+          },
+          "real_scores": {
+            "count": 10,
+            "min": 0.9999924898147583,
+            "max": 0.9999998807907104,
+            "avg": 0.9999985694885254
+          },
+          "fake_scores": {
+            "count": 10,
+            "min": 3.5012819807889173e-06,
+            "max": 0.8765178322792053,
+            "avg": 0.09026941099657507
+          },
+          "metrics": {
+            "eer": 0.0,
+            "auc": 0.0,
+            "eer_threshold": Infinity
+          }
 
-Step 2: 並行測試 (4線程同時)
-├── Thread 1: Upload頁面測試 (10,000檔案)
-│   ├── POST /upload → 獲取 server_filename
-│   ├── POST /analyze → 獲取 Model輸出
-│   └── 記錄: upload_time(0.2s) + analyze_time(1.2s) = total_time(1.4s)
-│
-├── Thread 2: Record頁面模擬 (1,000檔案)
-│   ├── POST /convert → 模擬錄音轉16kHz
-│   ├── POST /analyze → Model分析
-│   └── 記錄: convert_time(0.8s) + analyze_time(1.2s)
-│
-├── Thread 3: 空閒/備用
-└── Thread 4: 空閒/備用
+-test user: line 
+with ThreadPoolExecutor(max_workers=20) as executor:  # 100→20
 
-Step 3: 即時統計
-├── 真實聲音 Real分數: 最高0.99 / 最低0.72 / 平均0.89
-├── 虛假聲音 Real分數: 最高0.12 / 最低0.001 / 平均0.03
-└── 速度: 平均1.4s/檔案 (P95: 2.1s) → ✅ Realtime合格!
+- 🚨 100線程超載！Flask服務崩潰
+  - ❌ 測試失敗 LA_E_6422459.flac: HTTPConnectionPool(host='localhost', port=5001): Read timed out. (read timeout=6)
 
-Step 4: 生成報告
-├── platform_eval_results.csv (10,000行明細)
-├── platform_eval_summary.json (統計摘要)
-└── Console完整報告
+- cpu usage :　ps aux --sort=-%cpu | head -10
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+carmen      1834 80.5 71.3 20670896 11853808 pts/0 Sl+ 17:53 107:34 python app.py
