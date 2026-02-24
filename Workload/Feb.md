@@ -203,9 +203,9 @@
             "auc": 0.0,
             "eer_threshold": Infinity
           }
-
+## 23/2/2026 real-time
 -test user: line 
-with ThreadPoolExecutor(max_workers=20) as executor:  # 100→20
+- with ThreadPoolExecutor(max_workers=20) as executor:  # 100→20
 
 - 🚨 100線程超載！Flask服務崩潰
   - ❌ 測試失敗 LA_E_6422459.flac: HTTPConnectionPool(host='localhost', port=5001): Read timed out. (read timeout=6)
@@ -214,3 +214,5 @@ with ThreadPoolExecutor(max_workers=20) as executor:  # 100→20
 
       USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
       carmen      1834 80.5 71.3 20670896 11853808 pts/0 Sl+ 17:53 107:34 python app.py
+
+- run 128 analyze in 20:00:01 → 20:11:29 = 11.28s  => 128 ÷ 11.48 = 11/fps and 89%cpu
