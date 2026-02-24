@@ -85,4 +85,62 @@
 - 每4秒自動切片分析，顯示Model原始輸出(Real: 0.7530, Fake: 0.2470)。
 - 可調threshold(10%/30%/50%)，音量偵測(RMS)，連續滾動顯示50行結果
 
+## 21/2/2026 /evaluation
+pre-process : 從標籤檔提取 + 隨機選10,000檔案腳本
+jupyter:(venv) carmen@hkmu-1080ti:~/asvspoof$ python prepare_eval_dataset.py => eval_10000_dataset.csv
+(venv) carmen@hkmu-1080ti:~/asvspoof$ ls -la eval_10000_dataset.csv
+  -rw-r--r-- 1 carmen carmen 230015 Feb 25 01:02 eval_10000_dataset.csv
+head eval_10000_dataset.csv
+  filename,label
+  LA_E_2714189.flac,real
+  LA_E_8624167.flac,real
+  LA_E_6677864.flac,real
+  LA_E_1357107.flac,real
+  LA_E_7531986.flac,real
+  LA_E_9050668.flac,real
+  LA_E_8353060.flac,real
+  LA_E_2368562.flac,real
+  LA_E_6619416.flac,real
+
 ## 22/2/2026 
+真實用戶模擬細節: 
+Upload頁面測試 ≡ 用戶拖曳FLAC → 點Analyze按鈕
+Record頁面測試 ≡ 用戶錄音5s → 自動轉16kHz → Analyze  
+Realtime頁面 ≡ 每4s自動觸發 (已實作前端測試)
+
+eval_10000_dataset.csv
+PROTOCOL_FILE = "/home/carmen/asvspoof/datasets/LA/ASVspoof2019_LA_cm_protocols/ASVspoof2019.LA.cm.eval.trl.txt" 
+FLAC_DIR = Path("/home/carmen/asvspoof/datasets/LA/ASVspoof2019_LA_eval/flac")
+
+
+/eval_platform.py
+=> ASVspoof 2019 (10,000 FLAC) → 自動上傳你的各HTML頁面 → 記錄真實時間 → 收集Model輸出 → 生成統計報告
+
+Step 1: 載入資料
+├── 掃描 /path/to/eval/flac/*.flac (10,000檔案)
+├── 讀取 protocol.txt 標籤 (bonafide/spoof)
+└── 準備測試清單
+
+Step 2: 並行測試 (4線程同時)
+├── Thread 1: Upload頁面測試 (10,000檔案)
+│   ├── POST /upload → 獲取 server_filename
+│   ├── POST /analyze → 獲取 Model輸出
+│   └── 記錄: upload_time(0.2s) + analyze_time(1.2s) = total_time(1.4s)
+│
+├── Thread 2: Record頁面模擬 (1,000檔案)
+│   ├── POST /convert → 模擬錄音轉16kHz
+│   ├── POST /analyze → Model分析
+│   └── 記錄: convert_time(0.8s) + analyze_time(1.2s)
+│
+├── Thread 3: 空閒/備用
+└── Thread 4: 空閒/備用
+
+Step 3: 即時統計
+├── 真實聲音 Real分數: 最高0.99 / 最低0.72 / 平均0.89
+├── 虛假聲音 Real分數: 最高0.12 / 最低0.001 / 平均0.03
+└── 速度: 平均1.4s/檔案 (P95: 2.1s) → ✅ Realtime合格!
+
+Step 4: 生成報告
+├── platform_eval_results.csv (10,000行明細)
+├── platform_eval_summary.json (統計摘要)
+└── Console完整報告
