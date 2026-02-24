@@ -211,5 +211,6 @@ with ThreadPoolExecutor(max_workers=20) as executor:  # 100→20
   - ❌ 測試失敗 LA_E_6422459.flac: HTTPConnectionPool(host='localhost', port=5001): Read timed out. (read timeout=6)
 
 - cpu usage :　ps aux --sort=-%cpu | head -10
-USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-carmen      1834 80.5 71.3 20670896 11853808 pts/0 Sl+ 17:53 107:34 python app.py
+
+      USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+      carmen      1834 80.5 71.3 20670896 11853808 pts/0 Sl+ 17:53 107:34 python app.py
