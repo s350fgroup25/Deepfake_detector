@@ -243,8 +243,13 @@
     - carmen      8812  293 23.6 5662400 3924352 pts/0 Sl+  14:53  48:26 python /home/carmen/asvspoof/program/app.py
 
 - 每完成1個檔案等幾秒冷卻，避免CPU持續累積
-  - cooldown_sec=2
+  - cooldown_sec=2 => ✅ 檔案完成，等待 2s 冷卻..
 
 - Ctrl+C 中斷後，下次自動從上次結束處繼續
   - CHECKPOINT_CSV = "/home/carmen/asvspoof/results/platform_eval_checkpoint.csv"
+  - 支援 4 種中斷，全部能續傳
+    - 1. ✅ Ctrl+C（用戶手動）→ 斷點保存
+    - 2. ✅ OOM（記憶體不足）→ 斷點已保存
+    - 3. ✅ Timeout（超時崩潰）→ 斷點已保存  
+    - 4. ✅ 其他異常（硬崩潰）→ 斷點已保存
   - 
