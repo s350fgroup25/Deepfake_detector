@@ -253,3 +253,10 @@
     - 3. ✅ Timeout（超時崩潰）→ 斷點已保存  
     - 4. ✅ 其他異常（硬崩潰）→ 斷點已保存
   - 
+
+### next step : 
+- backup all file to desktop avoid lost data
+- 10000 data ? only use asvspoof 2019 ?
+- put result.csv to excel => chart / data analyze
+- real time analaze ??? 
+- real time page ???
