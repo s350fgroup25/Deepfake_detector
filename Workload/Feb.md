@@ -84,6 +84,7 @@
 
 - 每4秒自動切片分析，顯示Model原始輸出(Real: 0.7530, Fake: 0.2470)。
 - 可調threshold(10%/30%/50%)，音量偵測(RMS)，連續滾動顯示50行結果
+<img width="747" height="904" alt="image" src="https://github.com/user-attachments/assets/35f48190-d042-445d-8d09-e9d592714876" />
 
 
 ## 真實用戶模擬細節: 
