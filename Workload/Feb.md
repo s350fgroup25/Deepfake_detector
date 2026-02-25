@@ -263,7 +263,109 @@
   - 📊 歷史總完成: 35 個檔案
   - ✅ 本輪新檔案: 965 個（跳過 35 已完成）
 
- - retry_failed_files.py : ASVspoof 修復工具：自動找出只upload沒結果的9個檔案並重做 
+ - /retry_failed_files.py : ASVspoof 修復工具：自動找出只upload沒結果的9個檔案並重做
+
+       (venv2_asvspoof) carmen@raspberrypi:~ $ (venv2_asvspoof) carmen@raspberrypi:~ $ python ~/asvspoof/program/retry_failed_files.py
+          ============================================================
+          🔥 ASVspoof 失敗檔案重試工具
+          ============================================================
+          🚀 開始重試只upload沒結果的檔案...
+          🔍 分析檔案狀態...
+          ✅ checkpoint總數: 1000
+          ✅ results總數: 988
+          🔥 發現 12 個只upload沒結果的檔案
+          📋 重試清單 (12 個檔案):
+             1. LA_E_8360530.flac
+             2. LA_E_3379472.flac
+             3. LA_E_8500706.flac
+             4. LA_E_4680097.flac
+             5. LA_E_1184536.flac
+             6. LA_E_1191163.flac
+             7. LA_E_6067970.flac
+             8. LA_E_1125558.flac
+             9. LA_E_5817898.flac
+             10. LA_E_3996209.flac
+             ... 還有 2 個
+          🔄 重試 LA_E_8360530.flac...
+
+## report:
+    📊 完整統計（純處理時間，不含等待）:
+        總檔案數: 992
+        ⏱️ 平均單檔: 23.756s
+        📤 平均上傳: 0.069s
+        ⚙️  平均分析: 23.686s
+        ✅ CSV保存: /home/carmen/asvspoof/results/platform_eval_results_1000.csv
+        ✅ JSON保存: /home/carmen/asvspoof/results/platform_eval_summary_1000.json
+        🎯 EER: 0.0000 | AUC: 0.0003
+- (venv2_asvspoof) carmen@raspberrypi:~ $ cat /home/carmen/asvspoof/results/platform_eval_summary_1000.json
+  
+        {
+          "dataset": {
+            "total": 992,
+            "real": 492,
+            "fake": 500
+          },
+          "timing": {
+            "program_total": 1624.618202791,
+            "total_runtime": 23565.540165662766,
+            "min_time": 1.030329704284668,
+            "max_time": 60.33097696304321,
+            "avg_time": 23.75558484441811,
+            "p95_time": 37.73130856752395,
+            "upload_avg": 0.06914613468031729,
+            "analyze_avg": 23.686438709737793,
+            "analyze_min": 1.0204417705535889,
+            "analyze_max": 60.307452917099,
+            "files_count": 992
+          },
+          "real_scores": {
+            "count": 492,
+            "min": 0.1744745969772339,
+            "max": 1.0,
+            "avg": 0.9944432420216924
+          },
+          "fake_scores": {
+            "count": 500,
+            "min": 7.454111141669273e-07,
+            "max": 0.996853768825531,
+            "avg": 0.04002349463442533
+          },
+          "metrics": {
+            "eer": 0.0,
+            "auc": 0.000313008130081303,
+            "eer_threshold": Infinity
+          }
+
+- some wrong : (venv2_asvspoof) carmen@raspberrypi:~/asvspoof/program $ cat  /home/carmen/asvspoof/results/platform_eval_summary_1000.json
+
+        {
+          "dataset": {
+            "total": 1000,
+            "real": 488,
+            "fake": 512
+          },
+          "timing": {
+            "total_runtime": 23482.456473493578,
+            "avg_time": 23.482456473493578,
+            "files_count": 1000
+          },
+          "real_scores": {
+            "count": 488,
+            "avg": 0.9943977114362795
+          },
+          "fake_scores": {
+            "count": 512,
+            "avg": 0.06252291068414892
+          },
+          "metrics": {
+            "eer": 0.018442622950819672,
+            "eer_12digit": "0.018442622951",
+            "eer_scientific": "1.84e-02",
+            "auc": 0.987276671362705
+          }
+
+/eval_platform_fast.py
+10 
 ### next step : 
 - backup all file to desktop avoid lost data
 - 10000 data ? only use asvspoof 2019 ?
