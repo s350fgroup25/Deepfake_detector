@@ -456,35 +456,6 @@
           platform_eval_summary_50_N1.json : mean 50 data
           platform_eval_summary_20_N1.json: mean 20 data
 
-### Performance  
-| Metric             | 200 Samples | 100 Samples | 50 Samples | 20 Samples |
-| ------------------ | ----------- | ----------- | ---------- | ---------- |
-| Dataset            |             |             |            |            |
-| Total              | 200         | 100         | 50         | 20         |
-| Real               | 100         | 50          | 25         | 10         |
-| Fake               | 100         | 50          | 25         | 10         |
-| Timing (seconds)   |             |             |            |            |
-| Total Runtime      | 563.19      | 259.30      | 131.10     | 49.43      |
-| Avg Time/File      | 2.8159      | 2.5930      | 2.6219     | 2.4714     |
-| Analyze Avg        | 2.8077      | 2.5852      | 2.6144     | 2.4640     |
-| P95 Time           | 4.4855      | 4.3195      | 4.5173     | 3.2913     |
-| Upload Avg         | 0.0082      | 0.0079      | 0.0075     | 0.0074     |
-| Real Scores        |             |             |            |            |
-| Count              | 100         | 50          | 25         | 10         |
-| Min                | 0.5086      | 0.5086      | 0.9997     | 0.99999    |
-| Max                | 0.99999     | 0.99999     | 0.99999    | 0.99999    |
-| Avg                | 0.9919      | 0.9902      | 1.0000     | 1.0000     |
-| Fake Scores        |             |             |            |            |
-| Count              | 100         | 50          | 25         | 10         |
-| Min                | 7.69e-07    | 7.69e-07    | 3.50e-06   | 3.50e-06   |
-| Max                | 0.8765      | 0.8765      | 0.8765     | 0.8765     |
-| Avg                | 0.0394      | 0.0266      | 0.0510     | 0.0903     |
-| Evaluation Metrics |             |             |            |            |
-| EER                | 0.0         | 0.0         | 0.0        | 0.0        |
-| AUC                | 0.0003      | 0.0004      | 0.0        | 0.0        |
-| EER Threshold      | ∞           | ∞           | ∞          | ∞          |
-####  Key Observations
-- Real detection perfects (avg → 1.0) as datasets shrink due to outlier exclusion; fake avg scores worsen (0.039→0.090), signaling small-sample unreliability. Timing scales linearly; analyze phase dominates (~98% of per-file time).
 
 | Samples | Real Avg Score | Fake Avg Score | EER | AUC    | Avg Time/File (s) | Analyze Avg (s) | P95 Time (s) |
 | ------- | -------------- | -------------- | --- | ------ | ----------------- | --------------- | ------------ |
@@ -516,10 +487,39 @@
 - 5-workers (100): 14.6s/file, P95=23.5s (2.8x sequential single)
 - 10-workers (100): 29.5s/file, P95=45.5s (CPU/memory thrashing)
 
+### Performance  
+| Metric             | 200 Samples | 100 Samples | 50 Samples | 20 Samples |
+| ------------------ | ----------- | ----------- | ---------- | ---------- |
+| Dataset            |             |             |            |            |
+| Total              | 200         | 100         | 50         | 20         |
+| Real               | 100         | 50          | 25         | 10         |
+| Fake               | 100         | 50          | 25         | 10         |
+| Timing (seconds)   |             |             |            |            |
+| Total Runtime      | 563.19      | 259.30      | 131.10     | 49.43      |
+| Avg Time/File      | 2.8159      | 2.5930      | 2.6219     | 2.4714     |
+| Analyze Avg        | 2.8077      | 2.5852      | 2.6144     | 2.4640     |
+| P95 Time           | 4.4855      | 4.3195      | 4.5173     | 3.2913     |
+| Upload Avg         | 0.0082      | 0.0079      | 0.0075     | 0.0074     |
+| Real Scores        |             |             |            |            |
+| Count              | 100         | 50          | 25         | 10         |
+| Min                | 0.5086      | 0.5086      | 0.9997     | 0.99999    |
+| Max                | 0.99999     | 0.99999     | 0.99999    | 0.99999    |
+| Avg                | 0.9919      | 0.9902      | 1.0000     | 1.0000     |
+| Fake Scores        |             |             |            |            |
+| Count              | 100         | 50          | 25         | 10         |
+| Min                | 7.69e-07    | 7.69e-07    | 3.50e-06   | 3.50e-06   |
+| Max                | 0.8765      | 0.8765      | 0.8765     | 0.8765     |
+| Avg                | 0.0394      | 0.0266      | 0.0510     | 0.0903     |
+| Evaluation Metrics |             |             |            |            |
+| EER                | 0.0         | 0.0         | 0.0        | 0.0        |
+| AUC                | 0.0003      | 0.0004      | 0.0        | 0.0        |
+| EER Threshold      | ∞           | ∞           | ∞          | ∞          |
+####  Key Observations
+- Real detection perfects (avg → 1.0) as datasets shrink due to outlier exclusion; fake avg scores worsen (0.039→0.090), signaling small-sample unreliability. Timing scales linearly; analyze phase dominates (~98% of per-file time).
+
 ### next step : 
-- 每次處理完一個音頻就清理內存
+- dataset ? still use 2019 or use 2021
 - backup all file to desktop avoid lost data
-- 10000 data ? only use asvspoof 2019 ?
+- 10000 data ? 1000 data ? 500 data ? 
 - put result.csv to excel => chart / data analyze
-- real time analaze ??? 
-- real time page ???
+- real time analaze ??? real time page ???
