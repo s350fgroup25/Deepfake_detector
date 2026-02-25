@@ -364,9 +364,160 @@
             "auc": 0.987276671362705
           }
 
-/eval_platform_fast.py
-10 
+- N = 10 :　
+
+      📊 總檔案數:   100
+      ⏱️  TIME ANALYSIS (upload + analyze)
+      --------------------------------------------------
+      ⏱️  程式整體運行時間:  302.1s
+      💾  各檔案總和時間: 2936.5s
+      ⚡ 最快單檔:     14.157s (upload+analyze)
+      🐌 最慢單檔:     72.725s (upload+analyze)
+      📈 平均單檔:     29.365s
+      🎯 P95時間:      46.782s
+      
+      🔍 細分時間:
+         📤 平均上傳:    0.076s
+         ⚙️  平均分析:   29.289s
+         ⏱️  分析最快:   14.041s
+         ⏱️  分析最慢:   72.631s
+      
+      🤖 MODEL PERFORMANCE (Real Score)
+      --------------------------------------------------
+      ✅ 真實: 0.5086 ~ 1.0000 (avg:0.9902)
+      ❌ 假:  0.0000 ~ 0.8765 (avg:0.0266)
+      
+      📊 METRICS
+      --------------------------------------------------
+      EER: 0.0000 | AUC: 0.0004
+
+- N = 5
+
+      ⏱️  TIME ANALYSIS (upload + analyze)
+      --------------------------------------------------
+      ⏱️  程式整體運行時間:  297.1s
+      💾  各檔案總和時間: 1458.6s
+      ⚡ 最快單檔:      6.572s (upload+analyze)
+      🐌 最慢單檔:     34.844s (upload+analyze)
+      📈 平均單檔:     14.586s
+      🎯 P95時間:      23.539s
+      
+      🔍 細分時間:
+         📤 平均上傳:    0.040s
+         ⚙️  平均分析:   14.545s
+         ⏱️  分析最快:    6.557s
+         ⏱️  分析最慢:   34.806s
+      
+      🤖 MODEL PERFORMANCE (Real Score)
+      --------------------------------------------------
+      ✅ 真實: 0.5086 ~ 1.0000 (avg:0.9902)
+      ❌ 假:  0.0000 ~ 0.8765 (avg:0.0266)
+
+- N =1
+
+      ⏱️  TIME ANALYSIS (upload + analyze)
+      --------------------------------------------------
+      ⏱️  程式整體運行時間:  274.2s
+      💾  各檔案總和時間:  259.3s
+      ⚡ 最快單檔:      1.122s (upload+analyze)
+      🐌 最慢單檔:      6.419s (upload+analyze)
+      📈 平均單檔:      2.593s
+      🎯 P95時間:       4.320s
+      
+      🔍 細分時間:
+         📤 平均上傳:    0.008s
+         ⚙️  平均分析:    2.585s
+         ⏱️  分析最快:    1.115s
+         ⏱️  分析最慢:    6.409s
+      
+      🤖 MODEL PERFORMANCE (Real Score)
+      --------------------------------------------------
+      ✅ 真實: 0.5086 ~ 1.0000 (avg:0.9902)
+      ❌ 假:  0.0000 ~ 0.8765 (avg:0.0266)
+      
+      📊 METRICS
+      --------------------------------------------------
+      EER: 0.0000 | AUC: 0.0004
+      📊 METRICS
+      --------------------------------------------------
+      EER: 0.0000 | AUC: 0.0004
+
+- updata : N=1 : CPU  start 20% and add +1 => 180
+  - 每次處理完一個音頻就清理內存 => app.py 
+
+
+        cat /home/carmen/asvspoof/results/
+          platform_eval_summary_1000.json : mean 1000 data in 1 並發 
+          platform_eval_summary_100.json : mean 1000 data in 10 並發 
+          platform_eval_summary_100_N1.json :mean 1000 data in 1 並發 
+          platform_eval_summary_100_N5.json：　mean 1000 data in 5 並發
+          platform_eval_summary_200_N1.json : mean 200 data 
+          platform_eval_summary_100_N.json: mean 100 data
+          platform_eval_summary_50_N1.json : mean 50 data
+          platform_eval_summary_20_N1.json: mean 20 data
+
+### Performance  
+| Metric             | 200 Samples | 100 Samples | 50 Samples | 20 Samples |
+| ------------------ | ----------- | ----------- | ---------- | ---------- |
+| Dataset            |             |             |            |            |
+| Total              | 200         | 100         | 50         | 20         |
+| Real               | 100         | 50          | 25         | 10         |
+| Fake               | 100         | 50          | 25         | 10         |
+| Timing (seconds)   |             |             |            |            |
+| Total Runtime      | 563.19      | 259.30      | 131.10     | 49.43      |
+| Avg Time/File      | 2.8159      | 2.5930      | 2.6219     | 2.4714     |
+| Analyze Avg        | 2.8077      | 2.5852      | 2.6144     | 2.4640     |
+| P95 Time           | 4.4855      | 4.3195      | 4.5173     | 3.2913     |
+| Upload Avg         | 0.0082      | 0.0079      | 0.0075     | 0.0074     |
+| Real Scores        |             |             |            |            |
+| Count              | 100         | 50          | 25         | 10         |
+| Min                | 0.5086      | 0.5086      | 0.9997     | 0.99999    |
+| Max                | 0.99999     | 0.99999     | 0.99999    | 0.99999    |
+| Avg                | 0.9919      | 0.9902      | 1.0000     | 1.0000     |
+| Fake Scores        |             |             |            |            |
+| Count              | 100         | 50          | 25         | 10         |
+| Min                | 7.69e-07    | 7.69e-07    | 3.50e-06   | 3.50e-06   |
+| Max                | 0.8765      | 0.8765      | 0.8765     | 0.8765     |
+| Avg                | 0.0394      | 0.0266      | 0.0510     | 0.0903     |
+| Evaluation Metrics |             |             |            |            |
+| EER                | 0.0         | 0.0         | 0.0        | 0.0        |
+| AUC                | 0.0003      | 0.0004      | 0.0        | 0.0        |
+| EER Threshold      | ∞           | ∞           | ∞          | ∞          |
+####  Key Observations
+- Real detection perfects (avg → 1.0) as datasets shrink due to outlier exclusion; fake avg scores worsen (0.039→0.090), signaling small-sample unreliability. Timing scales linearly; analyze phase dominates (~98% of per-file time).
+
+| Samples | Real Avg Score | Fake Avg Score | EER | AUC    | Avg Time/File (s) | Analyze Avg (s) | P95 Time (s) |
+| ------- | -------------- | -------------- | --- | ------ | ----------------- | --------------- | ------------ |
+| 200     | 0.9919         | 0.0394         | 0.0 | 0.0003 | 2.8159            | 2.8077          | 4.4855       |
+| 100     | 0.9902         | 0.0266         | 0.0 | 0.0004 | 2.5930            | 2.5852          | 4.3195       |
+| 50      | 1.0000         | 0.0510         | 0.0 | 0.0000 | 2.6219            | 2.6144          | 4.5173       |
+| 20      | 1.0000         | 0.0903         | 0.0 | 0.0000 | 2.4714            | 2.4640          | 3.2913       |
+
+### Concurrency Comparison Table 並發性能對比表:
+| Metric           | 1000 (10 worker) | 100 (10 workers) | 100 (1 worker)  | 100 (5 workers) |
+| ---------------- | --------------- | ---------------- | --------------- | --------------- |
+| Dataset          |                 |                  |                 |                 |
+| Total            | 992             | 98               | 100             | 100             |
+| Real Count/Avg   | 492/0.9944      | 50/0.9902        | 50/0.9902       | 50/0.9902       |
+| Fake Count/Avg   | 500/0.0400      | 48/0.0276        | 50/0.0266       | 50/0.0266       |
+| Timing (seconds) |                 |                  |                 |                 |
+| Total Runtime    | 23565.54        | 2888.70          | 266.44          | 1458.58         |
+| Avg Time/File    | 23.76           | 29.48            | 2.66            | 14.59           |
+| Analyze Avg      | 23.69           | 29.37            | 2.66            | 14.55           |
+| P95 Time         | 37.73           | 45.52            | 4.37            | 23.54           |
+| Scores Range     |                 |                  |                 |                 |
+| Real Min-Max     | 0.1745-1.000    | 0.5086-1.000     | 0.5086-1.000    | 0.5086-1.000    |
+| Fake Min-Max     | 7.45e-07-0.9969 | 7.69e-07-0.8765  | 7.69e-07-0.8765 | 7.69e-07-0.8765 |
+| Metrics          |                 |                  |                 |                 |
+| EER              | 0.0             | 0.0              | 0.0             | 0.0             |
+| AUC              | 0.0003          | 0.0004           | 0.0004          | 0.0004          |
+#### Concurrency Impact
+- 1-worker (1000): 23.8s/file, P95=37.7s (queue saturation)
+- 5-workers (100): 14.6s/file, P95=23.5s (2.8x sequential single)
+- 10-workers (100): 29.5s/file, P95=45.5s (CPU/memory thrashing)
+
 ### next step : 
+- 每次處理完一個音頻就清理內存
 - backup all file to desktop avoid lost data
 - 10000 data ? only use asvspoof 2019 ?
 - put result.csv to excel => chart / data analyze
