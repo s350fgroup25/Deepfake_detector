@@ -457,13 +457,6 @@
           platform_eval_summary_20_N1.json: mean 20 data
 
 
-| Samples | Real Avg Score | Fake Avg Score | EER | AUC    | Avg Time/File (s) | Analyze Avg (s) | P95 Time (s) |
-| ------- | -------------- | -------------- | --- | ------ | ----------------- | --------------- | ------------ |
-| 200     | 0.9919         | 0.0394         | 0.0 | 0.0003 | 2.8159            | 2.8077          | 4.4855       |
-| 100     | 0.9902         | 0.0266         | 0.0 | 0.0004 | 2.5930            | 2.5852          | 4.3195       |
-| 50      | 1.0000         | 0.0510         | 0.0 | 0.0000 | 2.6219            | 2.6144          | 4.5173       |
-| 20      | 1.0000         | 0.0903         | 0.0 | 0.0000 | 2.4714            | 2.4640          | 3.2913       |
-
 ### Concurrency Comparison Table 並發性能對比表:
 | Metric           | 1000 (10 worker) | 100 (10 workers) | 100 (1 worker)  | 100 (5 workers) |
 | ---------------- | --------------- | ---------------- | --------------- | --------------- |
@@ -516,6 +509,13 @@
 | EER Threshold      | ∞           | ∞           | ∞          | ∞          |
 ####  Key Observations
 - Real detection perfects (avg → 1.0) as datasets shrink due to outlier exclusion; fake avg scores worsen (0.039→0.090), signaling small-sample unreliability. Timing scales linearly; analyze phase dominates (~98% of per-file time).
+
+| Samples | Real Avg Score | Fake Avg Score | EER | AUC    | Avg Time/File (s) | Analyze Avg (s) | P95 Time (s) |
+| ------- | -------------- | -------------- | --- | ------ | ----------------- | --------------- | ------------ |
+| 200     | 0.9919         | 0.0394         | 0.0 | 0.0003 | 2.8159            | 2.8077          | 4.4855       |
+| 100     | 0.9902         | 0.0266         | 0.0 | 0.0004 | 2.5930            | 2.5852          | 4.3195       |
+| 50      | 1.0000         | 0.0510         | 0.0 | 0.0000 | 2.6219            | 2.6144          | 4.5173       |
+| 20      | 1.0000         | 0.0903         | 0.0 | 0.0000 | 2.4714            | 2.4640          | 3.2913       |
 
 ### next step : 
 - dataset ? still use 2019 or use 2021
