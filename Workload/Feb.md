@@ -216,3 +216,35 @@
       carmen      1834 80.5 71.3 20670896 11853808 pts/0 Sl+ 17:53 107:34 python app.py
 
 - run 128 analyze in 20:00:01 → 20:11:29 = 11.28s  => 128 ÷ 11.48 = 11/fps and 89%cpu
+
+### CPU analysis : 
+- start the  app.y only need less then 2% CPU , and 9.9% me,pry
+- watch -n 1 'ps aux --sort=-%cpu | head -n 10'
+
+      USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+      carmen      1433  2.0  9.9 2651760 1654912 pts/0 Sl+  14:23   0:06 python /home/carmen/asvspoof/program/app.py
+
+- 1000 data :
+  - 50 line : can't  
+    - carmen      1433 71.3 45.9 13661776 7623840 pts/0 Sl+ 14:23   5:44 python /home/carmen/asvspoof/program/app.py
+    - ❌ 測試失敗 LA_E_1686710.flac: HTTPConnectionPool(host='localhost', port=5001): Max retries exceeded with url:
+  - error : put too many , soloution each Thread add 10 sec for analyze. 
+- batch_size : 執行完整評估 - 批次上傳，每批之間等待10秒
+  - 20 : stil overload server
+    - but CPU:
+      - 23.9 18.0 5924592 3000608 pts/0 Sl+  14:33   2:24 python /home/carmen/asvspoof/program/app.py
+      - 130 27.5 7016384 4572208 pts/0 Sl+  14:33  19:08 python /home/carmen/asvspoof/program/app.py
+  - 10s stil too short , may take the max file time (最慢單檔: 16.466s) : wait 20s 
+
+- 動態並發：analyze response回來就放新檔案，總數永遠≤10
+  - ❌ 20 : when start CPU 180 %CPU
+  - 10 : evaluator.run_evaluation(max_files=1000, max_concurrent=10)
+    - first thread only 80 , when doen 185 file => 293 , add 1 cpu when done file
+    - carmen      8812  293 23.6 5662400 3924352 pts/0 Sl+  14:53  48:26 python /home/carmen/asvspoof/program/app.py
+
+- 每完成1個檔案等幾秒冷卻，避免CPU持續累積
+  - cooldown_sec=2
+
+- Ctrl+C 中斷後，下次自動從上次結束處繼續
+  - CHECKPOINT_CSV = "/home/carmen/asvspoof/results/platform_eval_checkpoint.csv"
+  - 
