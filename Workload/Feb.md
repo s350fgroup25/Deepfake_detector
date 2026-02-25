@@ -253,6 +253,7 @@
     - 3. ✅ Timeout（超時崩潰）→ 斷點已保存  
     - 4. ✅ 其他異常（硬崩潰）→ 斷點已保存
   - 
+<img width="1902" height="1005" alt="image" src="https://github.com/user-attachments/assets/baa4a434-65ee-4b65-8f7d-40e3c4fcc28a" />
 
 ### next step : 
 - backup all file to desktop avoid lost data
