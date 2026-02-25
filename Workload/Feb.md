@@ -245,6 +245,13 @@
 - 每完成1個檔案等幾秒冷卻，避免CPU持續累積
   - cooldown_sec=2 => ✅ 檔案完成，等待 2s 冷卻..
 
+<img width="1902" height="1005" alt="image" src="https://github.com/user-attachments/assets/baa4a434-65ee-4b65-8f7d-40e3c4fcc28a" />
+
+— CPU 崩潰 : red light -- and hit 
+  - carmen     14138  271 24.1 5415424 4018736 pts/0 Sl+  15:11 151:54 python /home/carmen/asvspoof/program/app.py
+  - client_loop: send disconnect: Connection reset
+  - 處理檔案:  75%|█████████████████████████████████████▋            | 753/1000 [47:40<08:28,  2.06s/it, 並發=0, 總完成=753]✅ 檔案完成，等待 2s 冷卻..
+
 - Ctrl+C 中斷後，下次自動從上次結束處繼續
   - CHECKPOINT_CSV = "/home/carmen/asvspoof/results/platform_eval_checkpoint.csv"
   - 支援 4 種中斷，全部能續傳
@@ -252,9 +259,11 @@
     - 2. ✅ OOM（記憶體不足）→ 斷點已保存
     - 3. ✅ Timeout（超時崩潰）→ 斷點已保存  
     - 4. ✅ 其他異常（硬崩潰）→ 斷點已保存
-  - 
-<img width="1902" height="1005" alt="image" src="https://github.com/user-attachments/assets/baa4a434-65ee-4b65-8f7d-40e3c4fcc28a" />
+  - ✅ 載入斷點: 35 個檔案
+  - 📊 歷史總完成: 35 個檔案
+  - ✅ 本輪新檔案: 965 個（跳過 35 已完成）
 
+ - retry_failed_files.py : ASVspoof 修復工具：自動找出只upload沒結果的9個檔案並重做 
 ### next step : 
 - backup all file to desktop avoid lost data
 - 10000 data ? only use asvspoof 2019 ?
