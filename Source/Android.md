@@ -19,7 +19,30 @@ Need :
 
 Task : 
 1. 把 HFReadyModel 改成可匯出 ONNX 的版本
-2. 建一個 Android「Convert + 推論」專案骨架
-3. 設計「Convert + AI 分析」UI（activity_main.xml）
+- create export_onnx.py 產生 voice_auth.onnx
+  ✅ Exported to voice_auth.onnx (1205.5 MB)
+  🎉 ONNX export completed successfully!
+  =>在 Python 這邊用 ONNX Runtime 測試一次輸入相同 waveform，確定 logits 跟原本 PyTorch 模型差不多（這一段我下一回合可以幫你寫完整測試腳本）。
+  - test_onnx.py
+  (venv) carmen@hkmu-1080ti:~/asvspoof/program$ python validate_onnx.py
+  ✅ ONNX 結構正確！
+  
+  📊 Graph nodes: 1796
+  📊 Graph outputs: 1
+     Output: logits, shape=[dim_param: "batch"
+  , dim_value: 2
+  ]
+  ✅ Model is valid!
+  => 把 voice_auth.onnx 放進 Android app 的 app/src/main/assets/，讓手機可以讀。
+2. 建一個 Android「Convert + 推論」專案骨架\
+  => 加 ONNX Runtime 依賴:打開 app/build.gradle（Module: app），在 dependencies
+3. 設計「Convert + AI 分析」UI（res/layout/activity_main.xm）
+    按鈕：選檔
+    檔案資訊 TextView
+    按鈕：本地推論
+    顯示結果：REAL / FAKE + 機率
 4. MainActivity.kt – 完整骨架（含讀 assets + 簡單 ONNX call）
+   => app/src/main/java/com/example/voiceauthlocal/MainActivity.kt
 
+<img width="1390" height="1031" alt="image" src="https://github.com/user-attachments/assets/4d325797-fcd6-4bc9-92ea-8d8816d25218" />
+<img width="1920" height="1033" alt="image" src="https://github.com/user-attachments/assets/d9d8313d-c83b-43ce-9c4c-1eeb43566fcd" />
