@@ -10,9 +10,12 @@ there
 ### 
 
 ## 1/3/2026
-- (done) download asvspoof 2021 dataset 
+- download asvspoof 2021 dataset df and la 
+- zip the data and scp to raspberry pi
+- Evaluate analyze the data in raspberry pi
 ## 15/3/2026
 (venv2_asvspoof) carmen@raspberrypi:~/asvspoof/results $ ls
+
     eval_platform_results.csv             platform_eval_results_LA_200_N1.csv    platform_eval_summary_LA_200_N1.json
     eval_platform_summary.json            platform_eval_results_LA_500_N1.csv    platform_eval_summary_LA_500_N1.json
     platform_eval_results_df_1000_N1.csv  platform_eval_summary_df_1000_N1.json
