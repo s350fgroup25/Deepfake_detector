@@ -1,152 +1,243 @@
-## Choose the project name : 
-- Auditron (Audio + Audit + AI vibe)
-- VeriVox (Verification + Voice)
-- EchoSentry (Echo + Sentinel)
-- Phonolock (Phono + Lock) – Locks out fake audio.
+# ASV ONNX Test - Android Audio Classification App
 
-## Research 
-- what is Edge computing
-- how to implement model to Andorid app
-- try to implement model to iot device (Raspberry pi /Jetson nano )
-- Cantonese fake speech
-- hugging face AI model
-- apply ONNX
+An Android application that performs real-time audio classification using ONNX Runtime. The app allows users to select audio files and runs inference through a pre-trained ONNX model to classify the audio into two categories.
 
-### Hugging face AI model
-- What is Hugging face
-- How to run an AI model (local vs remote)
-- Implementing Hugging face model
-  -  iot device (Raspberry pi /Jetson nano )
-  -  Andorid app
+## 📱 Features
 
-### Extral
-- Cantonese fake speech
-- improve model (apply ONNX)
-- testing model
+- Select audio files from device storage (.wav, raw PCM)
+- Run ONNX model inference on selected audio
+- Display classification results (Class 0 or Class 1)
+- Show confidence scores and logits
+- Support for various audio formats (16-bit and 32-bit PCM)
+- Automatic audio preprocessing (normalization, padding/truncation)
 
+## 🏗️ Tech Stack
 
-# Step on deploy Hugging Face Audio Deepfake Model on Raspberry Pi
-## 1. Prepare Raspberry Pi:
-- Get microSD card (16GB+).
-- Flash Raspberry Pi OS Lite (64-bit) with Raspberry Pi Imager.
-- Enable SSH and WiFi during setup.
-- Power on Pi and connect via SSH.
-- Update system
-  
-      sudo apt-get update && sudo apt-get upgrade -y
-      sudo reboot
-## 2. Install Docker on Raspberry Pi:
-    curl -fsSL https://get.docker.com -o get-docker.sh
-    sudo sh get-docker.sh
-    sudo systemctl enable docker
-    sudo systemctl start docker
-    docker --version
+- **Language**: Kotlin
+- **UI Framework**: Jetpack Compose
+- **ML Runtime**: ONNX Runtime Android 1.19.0
+- **Minimum SDK**: API 24 (Android 7.0)
+- **Target SDK**: API 36
+- **Build Tool**: Gradle (Kotlin DSL)
 
-## 3. Set Up Python Environment (Optional):
-    sudo apt install python3-pip python3-venv -y
-    python3 -m venv venv
-    source venv/bin/activate
-    pip install transformers huggingface_hub torch
+## 📋 Prerequisites
 
-## 4. Choose and Containerize Model:
-- Pick audio deepfake detection model (e.g., "mo-thecreator/Deepfake-audio-detection").
-- Use Docker or Chassis to build an ARM-compatible container.
-- Alternatively, find pre-built ARM containers.
+- Android Studio Ladybug (2024.2.1) or later
+- JDK 11 or later
+- Android device or emulator with API 24+
 
-## 5. Deploy Container on Raspberry Pi:
-    docker pull <model-container-image>
-    docker run --rm -it -p 45000:45000 --memory="200m" <model-container-image>
+## 🚀 Installation
 
-## 6. Run Inference:
-- Use Python gRPC client code to send audio and get detection results.
-- Optionally wrap client into a web API (e.g., Flask).
-  
-# Step on deploy Hugging Face Audio Deepfake Model on Android app 
-## 1. Model Preparation and Integration
-### Convert Hugging Face Model to TensorFlow Lite (TFLite):
-- Most Hugging Face models are originally in PyTorch or TensorFlow format. To run your deepfake detector model on Android fully offline, convert it to TFLite format, which is optimized for mobile devices.
-  - First, if your model is in PyTorch, convert it to TensorFlow using Hugging Face's tools or scripts. Then, export the TensorFlow saved model.
-  - Use TensorFlow Lite Converter to convert the saved model into a .tflite file.
-  - Example code snippet in Python for conversion using TensorFlow: (python)
+### 1. Clone the repository
 
-        import tensorflow as tf
-        
-        saved_model_dir = "saved_model_directory"
-        converter = tf.lite.TFLiteConverter.from_saved_model(saved_model_dir)
-        tflite_model = converter.convert()
-        
-        with open("model.tflite", "wb") as f:
-            f.write(tflite_model)
-  - Note: Model size and complexity should be compatible with mobile device limits (RAM, CPU). You may have to optimize or quantize the model for better speed and smaller size.
+```bash
+git clone https://github.com/yourusername/ASVOnnxTest.git
+cd ASVOnnxTest
+```
 
-### Load Model in Android App:
-- Add the .tflite model file into the Android assets directory.
-- Use TensorFlow Lite Interpreter (org.tensorflow.lite.Interpreter) to load the model inside your app.
-- Initialize the interpreter with: (java)
+### 2. Add your model file
 
-        Interpreter tflite = new Interpreter(loadModelFile(context, "model.tflite"));
-- Prepare input tensors according to model's input shape and data format.
-- Reference: Hugging Face offers a project tflite-android-transformers showing how Transformer models can be converted and run on Android.
+Place your ONNX model file in the `app/src/main/assets/` directory and name it `model.onnx`
 
-## 2. Audio Data Capture
-### Capturing Phone Calls Audio:
-- Android does not provide a consistent official API for recording phone call audio due to privacy/legal restrictions.
-- For Android 9 and earlier, some apps used TelephonyManager or MediaRecorder with specific permissions, but it varies by device and region.
-- For Android 10+, the AudioPlaybackCapture API allows capturing audio played by other apps (including calls in some conditions), but requires user permission and the target app's audio must not be protected.
-- Alternative: Prompt users to manually record calls using your app while the call is ongoing, if automatic capture is not feasible.
-### Capturing Voice Message Audio:
-- Voice messages come from third-party apps (e.g., WhatsApp, Messenger). Direct capture is usually not allowed for privacy reasons.
-- However, you can use AudioPlaybackCapture on Android 10+ to capture audio output during playback.
-- More commonly, support manual upload or sharing of voice message audio files for analysis.
+```
+app/src/main/assets/model.onnx
+```
 
-### Recording Audio:
-- Use Android’s MediaRecorder or AudioRecord API to record any audio input in real-time.
-- Request RECORD_AUDIO runtime permission from users.
+### 3. Build and run
 
-## 3. Manual Upload of .mp3 Files
-### File Picker Implementation:
-- Use Android’s Storage Access Framework (SAF) to let users select .mp3 files from device storage.
-- This invokes a system file picker and handles storage permissions transparently.
-- Example basic code to launch file picker: (java)
-  
-      Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-      intent.setType("audio/mpeg");
-      intent.addCategory(Intent.CATEGORY_OPENABLE);
-      startActivityForResult(intent, REQUEST_CODE_PICK_MP3);
-- Retrieve URI of selected file and read audio data.
-### Audio Processing:
-- Preprocess the audio file to fit your model’s expected input format (e.g., fixed length, sample rate, features like mel-spectrogram).
-- Use Android Media APIs for decoding .mp3 files into raw PCM if needed.
+Open the project in Android Studio and click **Run** (▶️) or use Gradle:
 
-## 4. Audio Processing and Inference
-### Preprocessing:
-- Convert raw audio waveforms to model input features such as mel-spectrogram, MFCC, or raw waveform tensor, according to your model’s training input.
-- You can use libraries such as Librosa offline on desktop, and for Android you might implement feature extraction in Java/Kotlin or use native C++ bindings (NDK) for performance.
-### Inference:
-- Use the TensorFlow Lite Interpreter to run inference with the processed input tensor.
-- Example inference code snippet: (java)
+```bash
+./gradlew assembleDebug
+./gradlew installDebug
+```
 
-      float[][] input = ... // preprocessed input
-      float[][] output = new float[1][1]; // example output shape
-      tflite.run(input, output);
-### Post-processing:
-- Interpret the output probability/output logits from the model to classify if the audio is real or deepfake.
-- Set thresholds or confidence values to trigger alerts.
+## 📁 Project Structure
 
-## 5. UI & Alerts
-### UI Components:
-- Build UI elements for:
-- Starting/stopping phone call recording or audio recording.
-- Selecting and uploading .mp3 files manually.
-- Displaying inference results clearly (e.g., "Real Audio" or "Deepfake Detected").
+```
+ASVOnnxTest/
+├── app/
+│   ├── src/main/
+│   │   ├── java/hk/omyu/asvonnxtest/
+│   │   │   └── MainActivity.kt          # Main application logic
+│   │   ├── res/                          # Android resources
+│   │   └── assets/                       # Model and test audio files
+│   │       ├── model.onnx                # Your ONNX model (required)
+│   │       └── test.wav                  # Test audio file (optional)
+│   └── build.gradle.kts                  # App-level build configuration
+├── gradle/
+└── build.gradle.kts                      # Project-level build configuration
+```
 
-### Alerts and Notifications:
-- Use Android Toasts, Dialogs, or Notifications to alert users immediately when a deepfake is detected.
-- Consider showing detailed results and allowing users to replay the audio.
+## 🎯 How It Works
 
-## 6. Permissions & Privacy
-- Request and handle runtime permissions carefully for:
-  - RECORD_AUDIO for audio capture.
-  - READ_EXTERNAL_STORAGE / MANAGE_EXTERNAL_STORAGE for file uploads (depending on Android versions).
-  - Call recording permissions if applicable (note this is device-dependent).
-- Inform users transparently about privacy, emphasizing all processing is done locally on the device without sending audio data to any servers.
+### Audio Processing Pipeline
+
+1. **File Selection**: User picks an audio file from device storage
+2. **Preprocessing**:
+   - Reads WAV header or raw PCM data
+   - Converts to mono (averages channels if needed)
+   - Normalizes audio (zero mean, unit variance)
+   - Pads or truncates to 77,824 samples
+3. **Inference**: Runs ONNX model using ONNX Runtime
+4. **Output**: Returns logits for 2 classes with confidence scores
+
+### Model Input/Output
+
+| Property | Value |
+|----------|-------|
+| **Input Shape** | `[1, 77824]` (batch_size, audio_samples) |
+| **Input Type** | Float32 |
+| **Output Shape** | `[1, 2]` (batch_size, num_classes) |
+| **Output Type** | Float32 (logits) |
+
+## 📖 Usage
+
+1. **Launch the app**
+2. **Tap "Select Audio File"** to choose an audio file from your device
+3. **Tap "Run Inference"** to process the selected audio
+4. **View results**:
+   - Predicted class (Class 0 or Class 1)
+   - Raw logit values
+   - Confidence level
+
+### Example Output
+
+```
+File: speech_sample.wav
+logits length: 2
+max logit: 5.2146597
+argmax: 0
+✅ Class 0 predicted
+```
+
+## 🔧 Configuration
+
+### Model Requirements
+
+Your ONNX model must:
+- Accept input shape `[1, 77824]` of Float32
+- Output `[1, 2]` logits (2 classes)
+- Use input name `"input_values"` (can be changed in code)
+
+### Audio Requirements
+
+Supported audio formats:
+- WAV (16-bit or 32-bit PCM)
+- Raw PCM (16-bit)
+- Mono or stereo (automatically converted to mono)
+- Any sample rate (automatically handled)
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+| Issue | Solution |
+|-------|----------|
+| **Model not found** | Ensure `model.onnx` is in `app/src/main/assets/` |
+| **Out of memory** | Model is 1.2GB; ensure device has sufficient RAM |
+| **NaN in output** | Check audio file format; try a different audio file |
+| **File picker doesn't open** | Check storage permissions in Android settings |
+
+### Logging
+
+Enable debug logging to see detailed processing steps:
+
+```bash
+adb logcat | grep ONNXTest
+```
+
+## 📦 Dependencies
+
+```kotlin
+dependencies {
+    implementation("com.microsoft.onnxruntime:onnxruntime-android:1.19.0")
+    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+    implementation("androidx.activity:activity-compose:1.8.0")
+    implementation("androidx.compose.ui:ui:1.5.4")
+    implementation("androidx.compose.material3:material3:1.1.2")
+}
+```
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [ONNX Runtime](https://github.com/microsoft/onnxruntime) for Android inference
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) for modern UI
+
+## 📞 Support
+
+For issues or questions:
+1. Check the [Issues](https://github.com/yourusername/ASVOnnxTest/issues) page
+2. Enable debug logging and capture logcat output
+3. Include model details and audio file information
+
+---
+
+**Note**: You need to provide your own `model.onnx` file. The app will copy it from assets to external storage on first run (requires ~1.2GB free space).
+```
+
+## Also Create a `.gitignore` file:
+
+```gitignore
+# Android
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+
+# Java
+*.class
+
+# Kotlin
+*.kotlin_module
+
+# Logs
+*.log
+
+# OS
+Thumbs.db
+Desktop.ini
+
+# Model files (too large for GitHub)
+*.onnx
+*.pb
+*.tflite
+
+# Audio files
+*.wav
+*.mp3
+*.m4a
+
+# Keystore
+*.jks
+*.keystore
+```
+
+## Quick Commands for Git Upload:
+
+```bash
+# Initialize git repository
+git init
+
+# Add all files
+git add .
+
+# Commit
+git commit -m "Initial commit: ASV ONNX Test Android app"
+
+# Add remote repository (replace with your repo URL)
+git remote add origin https://github.com/yourusername/ASVOnnxTest.git
+
+# Push to GitHub
+git branch -M main
+git push -u origin main
